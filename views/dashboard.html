@@ -1,0 +1,1021 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CityCare — Espace citoyen</title>
+
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         BACKGROUND EFFECTS
+    ====================================================== -->
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+    <div class="background-grid"></div>
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <!-- LOGO -->
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                CC
+            </div>
+
+            <div class="brand-name">
+                <strong>CityCare</strong>
+                <span>ESPACE CITOYEN</span>
+            </div>
+
+        </div>
+
+
+        <!-- PROFILE -->
+
+        <div class="sidebar-profile">
+
+            <div class="avatar">
+                NG
+            </div>
+
+            <div class="profile-info">
+
+                <strong id="sidebarUsername">
+                    Citoyen
+                </strong>
+
+                <span>
+                    Compte citoyen
+                </span>
+
+            </div>
+
+            <button
+                class="profile-menu"
+                type="button"
+                aria-label="Menu profil"
+            >
+                •••
+            </button>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="navigation">
+
+            <div class="nav-section">
+
+                <span class="nav-title">
+                    PRINCIPAL
+                </span>
+
+                <a
+                    href="/dashboard"
+                    class="nav-link active"
+                >
+                    <span class="nav-icon">⌂</span>
+                    <span>Tableau de bord</span>
+                </a>
+
+                <a
+                    href="/signalement"
+                    class="nav-link"
+                >
+                    <span class="nav-icon">!</span>
+                    <span>Mes signalements</span>
+                </a>
+
+                <a
+                    href="/rendezvous"
+                    class="nav-link"
+                >
+                    <span class="nav-icon">◷</span>
+                    <span>Mes rendez-vous</span>
+                </a>
+
+                <a
+                    href="/transport"
+                    class="nav-link"
+                >
+                    <span class="nav-icon">▣</span>
+                    <span>Transports</span>
+                </a>
+
+                <a
+                    href="/profile"
+                    class="nav-link"
+                >
+                    <span class="nav-icon">◯</span>
+                    <span>Mon profil</span>
+                </a>
+
+            </div>
+
+
+            <div class="nav-section">
+
+                <span class="nav-title">
+                    SERVICES
+                </span>
+
+                <a
+                    href="/signalement"
+                    class="mini-service"
+                >
+                    <span class="service-dot water"></span>
+                    Eau
+                </a>
+
+                <a
+                    href="/signalement"
+                    class="mini-service"
+                >
+                    <span class="service-dot electricity"></span>
+                    Électricité
+                </a>
+
+                <a
+                    href="/transport"
+                    class="mini-service"
+                >
+                    <span class="service-dot transport"></span>
+                    Mobilité
+                </a>
+
+                <a
+                    href="/signalement"
+                    class="mini-service"
+                >
+                    <span class="service-dot public"></span>
+                    Services publics
+                </a>
+
+            </div>
+
+        </nav>
+
+
+        <!-- SIDEBAR FOOTER -->
+
+        <div class="sidebar-footer">
+
+            <div class="mobile-card">
+
+                <div class="mobile-icon">
+                    ✦
+                </div>
+
+                <div class="mobile-content">
+
+                    <strong>
+                        CityCare Mobile
+                    </strong>
+
+                    <span>
+                        Vos services partout.
+                    </span>
+
+                    <button type="button">
+                        Découvrir →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="/logout"
+                id="btnLogout"
+                class="logout-link"
+            >
+                <span>↪</span>
+                Déconnexion
+            </a>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main">
+
+
+        <!-- =================================================
+             TOPBAR
+        ================================================== -->
+
+        <header class="topbar">
+
+            <div class="breadcrumb">
+
+                <span>CityCare</span>
+
+                <i>/</i>
+
+                <strong>
+                    Tableau de bord
+                </strong>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <!-- SEARCH -->
+
+                <div class="search-box">
+
+                    <span class="search-icon">
+                        ⌕
+                    </span>
+
+                    <input
+                        type="search"
+                        placeholder="Rechercher un service..."
+                        aria-label="Rechercher"
+                    >
+
+                    <kbd>
+                        Ctrl K
+                    </kbd>
+
+                </div>
+
+
+                <!-- NOTIFICATION -->
+
+                <button
+                    class="notification"
+                    type="button"
+                    aria-label="Notifications"
+                >
+                    ♧
+
+                    <span class="notification-badge">
+                        3
+                    </span>
+
+                </button>
+
+
+                <!-- PROFILE -->
+
+                <a
+                    href="/profile"
+                    class="top-profile"
+                >
+
+                    <div class="top-avatar">
+                        NG
+                    </div>
+
+                    <div class="top-profile-info">
+
+                        <strong id="topUsername">
+                            Citoyen
+                        </strong>
+
+                        <span>
+                            Mon compte
+                        </span>
+
+                    </div>
+
+                    <span class="chevron">
+                        ⌄
+                    </span>
+
+                </a>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             CONTENT
+        ================================================== -->
+
+        <div class="dashboard-content">
+
+
+            <!-- =================================================
+                 HERO
+            ================================================== -->
+
+            <section class="hero">
+
+                <div class="hero-content">
+
+                    <span class="hero-label">
+                        <i></i>
+                        CITYCARE · ESPACE CITOYEN
+                    </span>
+
+
+                    <h1 id="messageBienvenue">
+                        Bienvenue 👋
+                    </h1>
+
+
+                    <p id="nomUtilisateur">
+                        Bienvenue sur votre espace CityCare.
+                    </p>
+
+
+                    <div class="hero-actions">
+
+                        <a
+                            href="/signalement"
+                            class="primary-button"
+                        >
+                            <span>+</span>
+                            Nouveau signalement
+                        </a>
+
+                        <a
+                            href="/rendezvous"
+                            class="secondary-button"
+                        >
+                            Prendre rendez-vous
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CITY VISUAL -->
+
+                <div class="hero-visual">
+
+                    <div class="visual-circle circle-one"></div>
+                    <div class="visual-circle circle-two"></div>
+
+                    <div class="visual-orbit"></div>
+
+                    <div class="visual-center">
+
+                        <span>
+                            CC
+                        </span>
+
+                    </div>
+
+                    <div class="floating-card card-location">
+                        <span>●</span>
+                        <div>
+                            <strong>Votre ville</strong>
+                            <small>Antananarivo</small>
+                        </div>
+                    </div>
+
+                    <div class="floating-card card-status">
+                        <span>✓</span>
+                        <div>
+                            <strong>Services actifs</strong>
+                            <small>Tout fonctionne</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 STATISTICS
+            ================================================== -->
+
+            <section class="stats-grid">
+
+
+                <!-- SIGNALMENTS -->
+
+                <article class="stat-card">
+
+                    <div class="stat-header">
+
+                        <div class="stat-icon icon-blue">
+                            !
+                        </div>
+
+                        <span class="stat-tag">
+                            ACTIF
+                        </span>
+
+                    </div>
+
+                    <div class="stat-info">
+
+                        <span>
+                            SIGNALEMENTS
+                        </span>
+
+                        <strong id="nbSignalements">
+                            0
+                        </strong>
+
+                        <small>
+                            Mes signalements
+                        </small>
+
+                    </div>
+
+                    <a href="/signalement">
+                        Voir les détails
+                        <span>→</span>
+                    </a>
+
+                </article>
+
+
+
+                <!-- RENDEZ-VOUS -->
+
+                <article class="stat-card">
+
+                    <div class="stat-header">
+
+                        <div class="stat-icon icon-green">
+                            ◷
+                        </div>
+
+                        <span class="stat-tag">
+                            PLANIFIÉ
+                        </span>
+
+                    </div>
+
+                    <div class="stat-info">
+
+                        <span>
+                            RENDEZ-VOUS
+                        </span>
+
+                        <strong id="nbRendezvous">
+                            0
+                        </strong>
+
+                        <small>
+                            Rendez-vous programmés
+                        </small>
+
+                    </div>
+
+                    <a href="/rendezvous">
+                        Consulter
+                        <span>→</span>
+                    </a>
+
+                </article>
+
+
+
+                <!-- TRANSPORT -->
+
+                <article class="stat-card">
+
+                    <div class="stat-header">
+
+                        <div class="stat-icon icon-orange">
+                            ▣
+                        </div>
+
+                        <span class="stat-tag">
+                            DISPONIBLE
+                        </span>
+
+                    </div>
+
+                    <div class="stat-info">
+
+                        <span>
+                            TRANSPORTS
+                        </span>
+
+                        <strong id="nbTransport">
+                            0
+                        </strong>
+
+                        <small>
+                            Lignes disponibles
+                        </small>
+
+                    </div>
+
+                    <a href="/transport">
+                        Explorer
+                        <span>→</span>
+                    </a>
+
+                </article>
+
+
+
+                <!-- PROFILE -->
+
+                <article class="stat-card">
+
+                    <div class="stat-header">
+
+                        <div class="stat-icon icon-purple">
+                            ◯
+                        </div>
+
+                        <span class="stat-tag">
+                            COMPTE
+                        </span>
+
+                    </div>
+
+                    <div class="stat-info">
+
+                        <span>
+                            MON PROFIL
+                        </span>
+
+                        <strong
+                            id="nomProfil"
+                            class="profile-number"
+                        >
+                            Mon compte
+                        </strong>
+
+                        <small>
+                            Informations personnelles
+                        </small>
+
+                    </div>
+
+                    <a href="/profile">
+                        Gérer mon profil
+                        <span>→</span>
+                    </a>
+
+                </article>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 TWO COLUMNS
+            ================================================== -->
+
+            <section class="content-grid">
+
+
+                <!-- ACTIVITY -->
+
+                <div class="panel activity-panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+
+                            <span class="panel-label">
+                                HISTORIQUE
+                            </span>
+
+                            <h2>
+                                Activité récente
+                            </h2>
+
+                            <p>
+                                Les dernières actions effectuées sur votre compte.
+                            </p>
+
+                        </div>
+
+                        <span class="live-status">
+                            <i></i>
+                            En direct
+                        </span>
+
+                    </div>
+
+
+                    <div class="activity-table">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        DATE
+                                    </th>
+
+                                    <th>
+                                        ACTION
+                                    </th>
+
+                                    <th>
+                                        STATUT
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="tableActivites">
+
+                                <tr>
+
+                                    <td colspan="3">
+                                        Chargement des activités...
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- QUICK ACTIONS -->
+
+                <div class="panel quick-panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+
+                            <span class="panel-label">
+                                RACCOURCIS
+                            </span>
+
+                            <h2>
+                                Actions rapides
+                            </h2>
+
+                            <p>
+                                Les services que vous utilisez le plus.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="quick-list">
+
+
+                        <a
+                            href="/signalement"
+                            class="quick-item"
+                        >
+
+                            <span class="quick-icon red">
+                                !
+                            </span>
+
+                            <span class="quick-text">
+
+                                <strong>
+                                    Signaler un problème
+                                </strong>
+
+                                <small>
+                                    Signaler un problème dans votre quartier
+                                </small>
+
+                            </span>
+
+                            <b>
+                                →
+                            </b>
+
+                        </a>
+
+
+                        <a
+                            href="/rendezvous"
+                            class="quick-item"
+                        >
+
+                            <span class="quick-icon blue">
+                                ◷
+                            </span>
+
+                            <span class="quick-text">
+
+                                <strong>
+                                    Prendre rendez-vous
+                                </strong>
+
+                                <small>
+                                    Réserver un rendez-vous
+                                </small>
+
+                            </span>
+
+                            <b>
+                                →
+                            </b>
+
+                        </a>
+
+
+                        <a
+                            href="/transport"
+                            class="quick-item"
+                        >
+
+                            <span class="quick-icon green">
+                                ▣
+                            </span>
+
+                            <span class="quick-text">
+
+                                <strong>
+                                    Trouver un transport
+                                </strong>
+
+                                <small>
+                                    Consulter les lignes disponibles
+                                </small>
+
+                            </span>
+
+                            <b>
+                                →
+                            </b>
+
+                        </a>
+
+
+                        <a
+                            href="/profile"
+                            class="quick-item"
+                        >
+
+                            <span class="quick-icon purple">
+                                ◯
+                            </span>
+
+                            <span class="quick-text">
+
+                                <strong>
+                                    Modifier mon profil
+                                </strong>
+
+                                <small>
+                                    Gérer mes informations
+                                </small>
+
+                            </span>
+
+                            <b>
+                                →
+                            </b>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 CITY SERVICES
+            ================================================== -->
+
+            <section class="services-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="panel-label">
+                            CITYCARE
+                        </span>
+
+                        <h2>
+                            Services de la ville
+                        </h2>
+
+                        <p>
+                            Les services essentiels accessibles depuis votre espace.
+                        </p>
+
+                    </div>
+
+                    <span class="services-count">
+                        04 SERVICES
+                    </span>
+
+                </div>
+
+
+                <div class="services-grid">
+
+
+                    <!-- EAU -->
+
+                    <a
+                        href="/signalement"
+                        class="service-card"
+                    >
+
+                        <div class="service-top">
+
+                            <span class="service-number">
+                                01
+                            </span>
+
+                            <span class="service-icon water-icon">
+                                💧
+                            </span>
+
+                        </div>
+
+                        <div class="service-body">
+
+                            <h3>
+                                Eau
+                            </h3>
+
+                            <p>
+                                Signaler une coupure ou un problème lié à l'eau.
+                            </p>
+
+                        </div>
+
+                        <span class="service-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+
+                    <!-- ELECTRICITE -->
+
+                    <a
+                        href="/signalement"
+                        class="service-card"
+                    >
+
+                        <div class="service-top">
+
+                            <span class="service-number">
+                                02
+                            </span>
+
+                            <span class="service-icon electricity-icon">
+                                ⚡
+                            </span>
+
+                        </div>
+
+                        <div class="service-body">
+
+                            <h3>
+                                Électricité
+                            </h3>
+
+                            <p>
+                                Signaler une panne ou un problème électrique.
+                            </p>
+
+                        </div>
+
+                        <span class="service-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+
+                    <!-- MOBILITE -->
+
+                    <a
+                        href="/transport"
+                        class="service-card"
+                    >
+
+                        <div class="service-top">
+
+                            <span class="service-number">
+                                03
+                            </span>
+
+                            <span class="service-icon transport-icon">
+                                🚌
+                            </span>
+
+                        </div>
+
+                        <div class="service-body">
+
+                            <h3>
+                                Mobilité
+                            </h3>
+
+                            <p>
+                                Consulter les transports et les lignes disponibles.
+                            </p>
+
+                        </div>
+
+                        <span class="service-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+
+                    <!-- SERVICES PUBLICS -->
+
+                    <a
+                        href="/signalement"
+                        class="service-card"
+                    >
+
+                        <div class="service-top">
+
+                            <span class="service-number">
+                                04
+                            </span>
+
+                            <span class="service-icon public-icon">
+                                🏛
+                            </span>
+
+                        </div>
+
+                        <div class="service-body">
+
+                            <h3>
+                                Services publics
+                            </h3>
+
+                            <p>
+                                Signaler un problème concernant les services publics.
+                            </p>
+
+                        </div>
+
+                        <span class="service-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT — NE PAS MODIFIER
+    ====================================================== -->
+
+    <script src="/js/dashboard.js"></script>
+
+</body>
+
+</html>
+```

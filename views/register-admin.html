@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Création sécurisée d'un compte administrateur CityCare"
+    >
+
+    <title>
+        CityCare | Création administrateur
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/css/register-admin.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         ARRIÈRE-PLAN
+    ====================================================== -->
+
+    <div class="background">
+
+        <div class="orb orb-1"></div>
+
+        <div class="orb orb-2"></div>
+
+        <div class="orb orb-3"></div>
+
+        <div class="grid"></div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="topbar">
+
+        <a
+            href="/"
+            class="brand"
+        >
+
+            <span class="brand-icon">
+                C
+            </span>
+
+            <span class="brand-name">
+                CITY<span>CARE</span>
+            </span>
+
+        </a>
+
+
+        <a
+            href="/login"
+            class="top-login"
+        >
+
+            <span>
+                Déjà un compte ?
+            </span>
+
+            <strong>
+                Se connecter
+            </strong>
+
+            <span class="arrow">
+                →
+            </span>
+
+        </a>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTENU PRINCIPAL
+    ====================================================== -->
+
+    <main class="page">
+
+
+        <!-- =================================================
+             INTRODUCTION
+        ================================================== -->
+
+        <section class="intro">
+
+            <div class="status">
+
+                <span class="status-dot"></span>
+
+                <span>
+                    ESPACE ADMINISTRATEUR
+                </span>
+
+            </div>
+
+
+            <h1>
+
+                Construisez une ville
+                <span>
+                    plus intelligente.
+                </span>
+
+            </h1>
+
+
+            <p class="intro-text">
+
+                Accédez à l'espace de gestion CityCare
+                et pilotez les services urbains,
+                les signalements et les demandes
+                des citoyens.
+
+            </p>
+
+
+            <!-- ---------------------------------------------
+                 INDICATEURS
+            ---------------------------------------------- -->
+
+            <div class="security-list">
+
+
+                <div class="security-item">
+
+                    <div class="security-icon">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Accès sécurisé
+                        </strong>
+
+                        <span>
+                            Protection réservée aux administrateurs
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="security-item">
+
+                    <div class="security-icon">
+                        ◈
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Gestion centralisée
+                        </strong>
+
+                        <span>
+                            Citoyens, signalements et rendez-vous
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="security-item">
+
+                    <div class="security-icon">
+                        ↗
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Vision globale
+                        </strong>
+
+                        <span>
+                            Suivez l'activité de la ville
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="intro-footer">
+
+                <span class="line"></span>
+
+                <span>
+                    CITYCARE ADMINISTRATION
+                </span>
+
+                <span class="line"></span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FORMULAIRE
+        ================================================== -->
+
+        <section class="form-section">
+
+
+            <div class="form-card">
+
+
+                <!-- -----------------------------------------
+                     HEADER FORMULAIRE
+                ------------------------------------------ -->
+
+                <div class="form-top">
+
+                    <div>
+
+                        <div class="mini-label">
+                            NOUVEAU COMPTE
+                        </div>
+
+                        <h2>
+                            Créer votre accès
+                        </h2>
+
+                        <p>
+                            Renseignez vos informations administratives.
+                        </p>
+
+                    </div>
+
+
+                    <div class="admin-badge">
+
+                        <span>
+                            ✦
+                        </span>
+
+                        ADMIN
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- -----------------------------------------
+                     PROGRESS
+                ------------------------------------------ -->
+
+                <div class="progress">
+
+                    <div class="progress-line"></div>
+
+                    <div class="progress-step active">
+                        01
+                    </div>
+
+                    <div class="progress-label">
+                        Informations
+                    </div>
+
+                    <div class="progress-step">
+                        02
+                    </div>
+
+                    <div class="progress-label muted">
+                        Sécurité
+                    </div>
+
+                </div>
+
+
+
+                <!-- -----------------------------------------
+                     FORMULAIRE
+                ------------------------------------------ -->
+
+                <form
+                    id="formRegisterAdmin"
+                    autocomplete="off"
+                >
+
+
+                    <!-- =====================================
+                         INFORMATIONS PERSONNELLES
+                    ====================================== -->
+
+                    <div class="section-title">
+
+                        <span class="section-number">
+                            01
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Informations personnelles
+                            </strong>
+
+                            <small>
+                                Identité de l'administrateur
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="fields-grid">
+
+
+                        <!-- NOM -->
+
+                        <div class="field">
+
+                            <label for="nom">
+                                Nom
+                            </label>
+
+                            <div class="input-box">
+
+                                <span class="input-symbol">
+                                    N
+                                </span>
+
+                                <input
+                                    type="text"
+                                    id="nom"
+                                    name="nom"
+                                    placeholder="Votre nom"
+                                    autocomplete="family-name"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- PRÉNOM -->
+
+                        <div class="field">
+
+                            <label for="prenom">
+                                Prénom
+                            </label>
+
+                            <div class="input-box">
+
+                                <span class="input-symbol">
+                                    P
+                                </span>
+
+                                <input
+                                    type="text"
+                                    id="prenom"
+                                    name="prenom"
+                                    placeholder="Votre prénom"
+                                    autocomplete="given-name"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- USERNAME -->
+
+                        <div class="field full">
+
+                            <label for="username">
+                                Nom d'utilisateur
+                            </label>
+
+                            <div class="input-box">
+
+                                <span class="input-symbol">
+                                    @
+                                </span>
+
+                                <input
+                                    type="text"
+                                    id="username"
+                                    name="username"
+                                    placeholder="admin.citycare"
+                                    autocomplete="username"
+                                    required
+                                >
+
+                            </div>
+
+                            <small class="field-help">
+                                Ce nom sera utilisé pour vous connecter.
+                            </small>
+
+                        </div>
+
+
+
+                        <!-- EMAIL -->
+
+                        <div class="field full">
+
+                            <label for="email">
+                                Adresse e-mail professionnelle
+                            </label>
+
+                            <div class="input-box">
+
+                                <span class="input-symbol">
+                                    @
+                                </span>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="administrateur@citycare.com"
+                                    autocomplete="email"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- =====================================
+                         SÉCURITÉ
+                    ====================================== -->
+
+                    <div class="section-title security-title">
+
+                        <span class="section-number">
+                            02
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Sécurisation du compte
+                            </strong>
+
+                            <small>
+                                Protégez votre espace administrateur
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- MOT DE PASSE -->
+
+                    <div class="field">
+
+                        <label for="password">
+                            Mot de passe
+                        </label>
+
+                        <div class="input-box">
+
+                            <span class="input-symbol">
+                                ◆
+                            </span>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Minimum 6 caractères"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                id="togglePassword"
+                                class="password-toggle"
+                                aria-label="Afficher le mot de passe"
+                            >
+                                ◉
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- CONFIRMATION -->
+
+                    <div class="field">
+
+                        <label for="confirmation">
+                            Confirmation du mot de passe
+                        </label>
+
+                        <div class="input-box">
+
+                            <span class="input-symbol">
+                                ◆
+                            </span>
+
+                            <input
+                                type="password"
+                                id="confirmation"
+                                name="confirmation"
+                                placeholder="Répétez votre mot de passe"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                id="toggleConfirmation"
+                                class="password-toggle"
+                                aria-label="Afficher la confirmation"
+                            >
+                                ◉
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =====================================
+                         CODE ADMIN
+                    ====================================== -->
+
+                    <div class="admin-code">
+
+                        <div class="code-header">
+
+                            <div class="code-icon">
+                                #
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Code d'autorisation
+                                </strong>
+
+                                <span>
+                                    Zone protégée
+                                </span>
+
+                            </div>
+
+                            <div class="lock">
+                                🔒
+                            </div>
+
+                        </div>
+
+
+                        <p>
+                            Un code administrateur valide est
+                            nécessaire pour créer ce type de compte.
+                        </p>
+
+
+                        <div class="input-box code-input">
+
+                            <span class="input-symbol">
+                                #
+                            </span>
+
+                            <input
+                                type="password"
+                                id="codeAdmin"
+                                name="codeAdmin"
+                                placeholder="Entrez le code d'administration"
+                                autocomplete="off"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =====================================
+                         MESSAGE
+                    ====================================== -->
+
+                    <div
+                        id="message"
+                        class="message"
+                    ></div>
+
+
+
+                    <!-- =====================================
+                         BOUTON
+                    ====================================== -->
+
+                    <button
+                        type="submit"
+                        id="btnRegisterAdmin"
+                        class="submit-button"
+                    >
+
+                        <span class="button-content">
+
+                            <span class="button-icon">
+                                ✦
+                            </span>
+
+                            <span>
+                                Créer le compte administrateur
+                            </span>
+
+                            <span class="button-arrow">
+                                →
+                            </span>
+
+                        </span>
+
+                        <span
+                            id="btnLoader"
+                            class="loader"
+                        ></span>
+
+                    </button>
+
+
+
+                    <!-- =====================================
+                         NOTE
+                    ====================================== -->
+
+                    <div class="form-note">
+
+                        <span>
+                            🔐
+                        </span>
+
+                        <span>
+                            Vos informations sont utilisées
+                            uniquement pour la gestion de votre
+                            compte CityCare.
+                        </span>
+
+                    </div>
+
+
+                </form>
+
+
+
+                <!-- -----------------------------------------
+                     FOOTER CARD
+                ------------------------------------------ -->
+
+                <div class="form-footer">
+
+                    <a href="/login">
+                        ← Retour à la connexion
+                    </a>
+
+                    <span>
+                        CityCare © 2026
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <span>
+            CITYCARE
+        </span>
+
+        <span class="footer-separator">
+            •
+        </span>
+
+        <span>
+            Administration intelligente de la ville
+        </span>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="/js/register-admin.js"></script>
+
+</body>
+
+</html>

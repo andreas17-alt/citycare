@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Gestion des signalements - CityCare"
+    >
+
+    <title>CityCare — Gestion des signalements</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/css/gestion_signalement.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="page">
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="header">
+
+        <div class="header-left">
+
+            <a
+                href="/admin.html"
+                class="back-button"
+                title="Retour à l'administration"
+            >
+                ←
+            </a>
+
+            <div class="brand">
+
+                <div class="brand-logo">
+                    CC
+                </div>
+
+                <div class="brand-info">
+
+                    <strong>
+                        CityCare
+                    </strong>
+
+                    <span>
+                        ADMINISTRATION
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="header-right">
+
+            <div class="status">
+
+                <span class="status-dot"></span>
+
+                Système opérationnel
+
+            </div>
+
+            <div class="admin-avatar">
+                AD
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main">
+
+
+        <!-- PAGE TITLE -->
+
+        <section class="page-intro">
+
+            <div>
+
+                <span class="eyebrow">
+                    GESTION DES SERVICES
+                </span>
+
+                <h1>
+                    Signalements
+                </h1>
+
+                <p>
+                    Consultez, filtrez et traitez les
+                    signalements envoyés par les citoyens.
+                </p>
+
+            </div>
+
+            <button
+                type="button"
+                class="refresh-button"
+                id="refreshButton"
+            >
+                ↻
+                Actualiser
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             STATISTIQUES
+        ================================================== -->
+
+        <section class="stats">
+
+            <article class="stat-card">
+
+                <div class="stat-icon total">
+                    #
+                </div>
+
+                <div>
+
+                    <span>
+                        TOTAL
+                    </span>
+
+                    <strong id="totalCount">
+                        0
+                    </strong>
+
+                    <small>
+                        Signalements
+                    </small>
+
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon pending">
+                    !
+                </div>
+
+                <div>
+
+                    <span>
+                        EN ATTENTE
+                    </span>
+
+                    <strong id="pendingCount">
+                        0
+                    </strong>
+
+                    <small>
+                        À traiter
+                    </small>
+
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon progress">
+                    ◷
+                </div>
+
+                <div>
+
+                    <span>
+                        EN COURS
+                    </span>
+
+                    <strong id="progressCount">
+                        0
+                    </strong>
+
+                    <small>
+                        Traitements actifs
+                    </small>
+
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon resolved">
+                    ✓
+                </div>
+
+                <div>
+
+                    <span>
+                        RÉSOLUS
+                    </span>
+
+                    <strong id="resolvedCount">
+                        0
+                    </strong>
+
+                    <small>
+                        Traitements terminés
+                    </small>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FILTERS
+        ================================================== -->
+
+        <section class="toolbar">
+
+            <div class="search-box">
+
+                <span>
+                    ⌕
+                </span>
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Rechercher un signalement..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <select
+                id="serviceFilter"
+                class="filter"
+            >
+
+                <option value="">
+                    Tous les services
+                </option>
+
+                <option value="eau">
+                    Eau
+                </option>
+
+                <option value="electricite">
+                    Électricité
+                </option>
+
+                <option value="voirie">
+                    Voirie
+                </option>
+
+                <option value="transport">
+                    Transport
+                </option>
+
+            </select>
+
+
+            <select
+                id="statusFilter"
+                class="filter"
+            >
+
+                <option value="">
+                    Tous les statuts
+                </option>
+
+                <option value="attente">
+                    En attente
+                </option>
+
+                <option value="cours">
+                    En cours
+                </option>
+
+                <option value="resolu">
+                    Résolu
+                </option>
+
+                <option value="rejete">
+                    Rejeté
+                </option>
+
+            </select>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TABLE
+        ================================================== -->
+
+        <section class="table-card">
+
+            <div class="table-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        LISTE
+                    </span>
+
+                    <h2>
+                        Signalements récents
+                    </h2>
+
+                </div>
+
+                <span
+                    class="result-count"
+                    id="resultCount"
+                >
+                    0 résultat
+                </span>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                ID
+                            </th>
+
+                            <th>
+                                SERVICE
+                            </th>
+
+                            <th>
+                                CITOYEN
+                            </th>
+
+                            <th>
+                                DESCRIPTION
+                            </th>
+
+                            <th>
+                                LOCALISATION
+                            </th>
+
+                            <th>
+                                DATE
+                            </th>
+
+                            <th>
+                                STATUT
+                            </th>
+
+                            <th>
+                                ACTION
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="signalementsTable">
+
+                        <tr>
+
+                            <td colspan="8">
+
+                                <div class="empty-state">
+
+                                    <div class="empty-icon">
+                                        !
+                                    </div>
+
+                                    <h3>
+                                        Aucun signalement
+                                    </h3>
+
+                                    <p>
+                                        Les signalements des citoyens
+                                        apparaîtront ici.
+                                    </p>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- PAGINATION -->
+
+            <div class="pagination">
+
+                <span id="paginationInfo">
+                    Affichage de 0 signalement
+                </span>
+
+                <div class="pagination-buttons">
+
+                    <button
+                        type="button"
+                        id="previousPage"
+                        disabled
+                    >
+                        ←
+                    </button>
+
+                    <span
+                        id="currentPage"
+                        class="current-page"
+                    >
+                        1
+                    </span>
+
+                    <button
+                        type="button"
+                        id="nextPage"
+                        disabled
+                    >
+                        →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <span>
+            © 2026 CityCare
+        </span>
+
+        <span>
+            Gestion des signalements
+        </span>
+
+    </footer>
+
+</div>
+
+
+
+<!-- =====================================================
+     MODAL DÉTAILS
+====================================================== -->
+
+<div
+    class="modal-overlay"
+    id="signalementModal"
+    hidden
+>
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="eyebrow">
+                    SIGNALement
+                </span>
+
+                <h2>
+                    Détails du signalement
+                </h2>
+
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                id="closeModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div
+            class="modal-body"
+            id="modalContent"
+        >
+
+            <!-- Contenu injecté par JavaScript -->
+
+        </div>
+
+
+        <div class="modal-footer">
+
+            <button
+                type="button"
+                class="secondary-button"
+                id="cancelModal"
+            >
+                Fermer
+            </button>
+
+            <button
+                type="button"
+                class="primary-button"
+                id="processSignalement"
+            >
+                Traiter le signalement
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script src="/js/gestion_signalement.js"></script>
+
+</body>
+
+</html>

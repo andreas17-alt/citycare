@@ -1,0 +1,2338 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Administration CityCare"
+    >
+
+    <title>CityCare — Administration</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/css/admin.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="admin-app">
+
+
+    <!-- =====================================================
+         OVERLAY MOBILE
+    ====================================================== -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside
+        class="admin-sidebar"
+        id="sidebar"
+    >
+
+
+        <!-- BRAND -->
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                CC
+            </div>
+
+            <div class="brand-text">
+
+                <strong>
+                    CITYCARE
+                </strong>
+
+                <span>
+                    ADMIN CONSOLE
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROFIL ADMIN -->
+
+        <div class="admin-profile">
+
+            <div
+                class="admin-avatar"
+                id="adminAvatar"
+            >
+                AD
+            </div>
+
+            <div class="admin-profile-info">
+
+                <strong id="adminName">
+                    Administrateur
+                </strong>
+
+                <span id="adminUsername">
+                    @admin
+                </span>
+
+            </div>
+
+            <span class="online-dot"></span>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="admin-navigation">
+
+
+            <div class="nav-title">
+                PRINCIPAL
+            </div>
+
+
+            <a
+                href="#dashboard"
+                class="nav-link"
+                data-section="dashboard"
+            >
+
+                <span class="nav-icon">
+                    ▦
+                </span>
+
+                <span>
+                    Tableau de bord
+                </span>
+
+            </a>
+
+
+            <div class="nav-title">
+                GESTION
+            </div>
+
+
+            <a
+                href="#signalements"
+                class="nav-link"
+                data-section="signalements"
+            >
+
+                <span class="nav-icon">
+                    !
+                </span>
+
+                <span>
+                    Signalements
+                </span>
+
+                <b
+                    class="nav-badge danger"
+                    id="sideSignalements"
+                >
+                    0
+                </b>
+
+            </a>
+
+
+            <a
+                href="#rendezvous"
+                class="nav-link"
+                data-section="rendezvous"
+            >
+
+                <span class="nav-icon">
+                    ◷
+                </span>
+
+                <span>
+                    Rendez-vous
+                </span>
+
+                <b
+                    class="nav-badge warning"
+                    id="sideRendezvous"
+                >
+                    0
+                </b>
+
+            </a>
+
+
+            <a
+                href="#utilisateurs"
+                class="nav-link"
+                data-section="utilisateurs"
+            >
+
+                <span class="nav-icon">
+                    ◉
+                </span>
+
+                <span>
+                    Utilisateurs
+                </span>
+
+            </a>
+
+
+            <a
+                href="#transport"
+                class="nav-link"
+                data-section="transport"
+            >
+
+                <span class="nav-icon">
+                    ▣
+                </span>
+
+                <span>
+                    Transport
+                </span>
+
+            </a>
+
+
+            <div class="nav-title">
+                ANALYSE & SYSTÈME
+            </div>
+
+
+            <a
+                href="#statistiques"
+                class="nav-link"
+                data-section="statistiques"
+            >
+
+                <span class="nav-icon">
+                    ↗
+                </span>
+
+                <span>
+                    Statistiques
+                </span>
+
+            </a>
+
+
+            <a
+                href="#securite"
+                class="nav-link"
+                data-section="securite"
+            >
+
+                <span class="nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Sécurité
+                </span>
+
+            </a>
+
+
+            <a
+                href="#parametres"
+                class="nav-link"
+                data-section="parametres"
+            >
+
+                <span class="nav-icon">
+                    ⚙
+                </span>
+
+                <span>
+                    Paramètres
+                </span>
+
+            </a>
+
+        </nav>
+
+
+        <!-- FOOTER SIDEBAR -->
+
+        <div class="sidebar-footer">
+
+            <div class="security-status">
+
+                <span class="security-icon">
+                    ✓
+                </span>
+
+                <div>
+
+                    <strong>
+                        Système sécurisé
+                    </strong>
+
+                    <span>
+                        Session administrateur active
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="logout"
+                class="logout-button"
+            >
+
+                <span>
+                    ↪
+                </span>
+
+                Déconnexion
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="admin-main">
+
+
+        <!-- TOPBAR -->
+
+        <header class="admin-header">
+
+
+            <div class="header-left">
+
+                <button
+                    type="button"
+                    id="menuToggle"
+                    class="menu-button"
+                    aria-label="Ouvrir le menu"
+                >
+                    ☰
+                </button>
+
+
+                <div class="breadcrumb">
+
+                    <span>
+                        CityCare
+                    </span>
+
+                    <b>
+                        /
+                    </b>
+
+                    <strong id="breadcrumbCurrent">
+                        Tableau de bord
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="header-right">
+
+                <div class="system-status">
+
+                    <span></span>
+
+                    Système opérationnel
+
+                </div>
+
+
+                <div class="clock">
+
+                    <span class="clock-dot"></span>
+
+                    <strong id="adminClock">
+                        00:00:00
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENU -->
+
+        <div class="admin-content">
+
+
+            <!-- =================================================
+                 DASHBOARD
+            ================================================== -->
+
+            <section
+                id="dashboard"
+                class="admin-section"
+                data-section-content="dashboard"
+            >
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <span>
+                            CITYCARE / ADMINISTRATION
+                        </span>
+
+                        <h1>
+                            Tableau de bord
+                        </h1>
+
+                        <p>
+                            Vue générale de l'activité de CityCare.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="refreshDashboard"
+                        class="primary-button"
+                    >
+
+                        ↻
+                        Actualiser
+
+                    </button>
+
+                </div>
+
+
+                <div class="stats-grid">
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon blue">
+                            ◉
+                        </div>
+
+                        <div>
+
+                            <span>
+                                UTILISATEURS
+                            </span>
+
+                            <strong id="totalUsers">
+                                0
+                            </strong>
+
+                            <small>
+                                Comptes enregistrés
+                            </small>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon orange">
+                            !
+                        </div>
+
+                        <div>
+
+                            <span>
+                                SIGNALEMENTS
+                            </span>
+
+                            <strong id="totalSignalements">
+                                0
+                            </strong>
+
+                            <small>
+                                Signalements citoyens
+                            </small>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon green">
+                            ◷
+                        </div>
+
+                        <div>
+
+                            <span>
+                                RENDEZ-VOUS
+                            </span>
+
+                            <strong id="totalRendezvous">
+                                0
+                            </strong>
+
+                            <small>
+                                Rendez-vous enregistrés
+                            </small>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon purple">
+                            ▣
+                        </div>
+
+                        <div>
+
+                            <span>
+                                TRANSPORTS
+                            </span>
+
+                            <strong id="totalTransport">
+                                0
+                            </strong>
+
+                            <small>
+                                Lignes disponibles
+                            </small>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon red">
+                            !
+                        </div>
+
+                        <div>
+
+                            <span>
+                                EN ATTENTE
+                            </span>
+
+                            <strong id="totalPending">
+                                0
+                            </strong>
+
+                            <small>
+                                Signalements à traiter
+                            </small>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <div class="dashboard-grid">
+
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span>
+                                    ACTIVITÉ RÉCENTE
+                                </span>
+
+                                <h2>
+                                    Dernières activités
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            id="activitiesList"
+                            class="activity-list"
+                        >
+
+                            <div class="loading-state">
+                                Chargement...
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span>
+                                    RÉSUMÉ
+                                </span>
+
+                                <h2>
+                                    État de CityCare
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="summary-list">
+
+
+                            <div class="summary-row">
+
+                                <span>
+                                    Citoyens
+                                </span>
+
+                                <strong id="totalCitizens">
+                                    0
+                                </strong>
+
+                            </div>
+
+
+                            <div class="summary-row">
+
+                                <span>
+                                    Administrateurs
+                                </span>
+
+                                <strong id="totalAdmins">
+                                    0
+                                </strong>
+
+                            </div>
+
+
+                            <div class="summary-row">
+
+                                <span>
+                                    Signalements en cours
+                                </span>
+
+                                <strong id="signalementsCours">
+                                    0
+                                </strong>
+
+                            </div>
+
+
+                            <div class="summary-row">
+
+                                <span>
+                                    Signalements résolus
+                                </span>
+
+                                <strong id="signalementsResolus">
+                                    0
+                                </strong>
+
+                            </div>
+
+
+                            <div class="summary-row">
+
+                                <span>
+                                    Rendez-vous en attente
+                                </span>
+
+                                <strong id="rendezvousAttente">
+                                    0
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SIGNALEMENTS
+            ================================================== -->
+
+            <section
+                id="signalements"
+                class="admin-section"
+                data-section-content="signalements"
+            >
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <span>
+                            CITYCARE / GESTION
+                        </span>
+
+                        <h1>
+                            Signalements
+                        </h1>
+
+                        <p>
+                            Signalements envoyés par les citoyens.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="refreshSignalements"
+                        class="secondary-button"
+                    >
+                        ↻ Actualiser
+                    </button>
+
+                </div>
+
+
+                <div class="module-card">
+
+                    <div class="toolbar">
+
+                        <input
+                            type="search"
+                            id="signalementSearch"
+                            placeholder="Rechercher un signalement..."
+                        >
+
+
+                        <select id="signalementStatusFilter">
+
+                            <option value="">
+                                Tous les statuts
+                            </option>
+
+                            <option value="En attente">
+                                En attente
+                            </option>
+
+                            <option value="En cours">
+                                En cours
+                            </option>
+
+                            <option value="Résolu">
+                                Résolu
+                            </option>
+
+                            <option value="Rejeté">
+                                Rejeté
+                            </option>
+
+                        </select>
+
+
+                        <button
+                            type="button"
+                            id="resetSignalementFilters"
+                            class="icon-button"
+                        >
+                            ↺
+                        </button>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table class="admin-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>ID</th>
+                                    <th>Citoyen</th>
+                                    <th>Titre</th>
+                                    <th>Catégorie</th>
+                                    <th>Quartier</th>
+                                    <th>Statut</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="signalementsTableBody">
+
+                                <tr>
+
+                                    <td
+                                        colspan="8"
+                                        class="table-loading"
+                                    >
+                                        Chargement des signalements...
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 RENDEZ-VOUS
+            ================================================== -->
+
+            <section
+                id="rendezvous"
+                class="admin-section"
+                data-section-content="rendezvous"
+            >
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <span>
+                            CITYCARE / GESTION
+                        </span>
+
+                        <h1>
+                            Rendez-vous
+                        </h1>
+
+                        <p>
+                            Gestion des rendez-vous des citoyens.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="refreshRendezvous"
+                        class="secondary-button"
+                    >
+                        ↻ Actualiser
+                    </button>
+
+                </div>
+
+
+                <div class="stats-grid compact">
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon blue">
+                            ◷
+                        </div>
+
+                        <div>
+
+                            <span>
+                                TOTAL
+                            </span>
+
+                            <strong id="rdvTotal">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon orange">
+                            !
+                        </div>
+
+                        <div>
+
+                            <span>
+                                EN ATTENTE
+                            </span>
+
+                            <strong id="rdvPending">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon green">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <span>
+                                TERMINÉS
+                            </span>
+
+                            <strong id="rdvCompleted">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon red">
+                            ×
+                        </div>
+
+                        <div>
+
+                            <span>
+                                REFUSÉS
+                            </span>
+
+                            <strong id="rdvRefused">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <div class="module-card">
+
+                    <div class="toolbar">
+
+                        <input
+                            type="search"
+                            id="rdvSearch"
+                            placeholder="Rechercher un rendez-vous..."
+                        >
+
+
+                        <select id="rdvStatusFilter">
+
+                            <option value="">
+                                Tous les statuts
+                            </option>
+
+                            <option value="En attente">
+                                En attente
+                            </option>
+
+                            <option value="En cours">
+                                En cours
+                            </option>
+
+                            <option value="Terminé">
+                                Terminé
+                            </option>
+
+                            <option value="Refusé">
+                                Refusé
+                            </option>
+
+                        </select>
+
+
+                        <button
+                            type="button"
+                            id="resetRdvFilters"
+                            class="icon-button"
+                        >
+                            ↺
+                        </button>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table class="admin-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>ID</th>
+                                    <th>Citoyen</th>
+                                    <th>Centre</th>
+                                    <th>Service</th>
+                                    <th>Date</th>
+                                    <th>Heure</th>
+                                    <th>Statut</th>
+                                    <th>Action</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="rendezvousTableBody">
+
+                                <tr>
+
+                                    <td
+                                        colspan="8"
+                                        class="table-loading"
+                                    >
+                                        Chargement des rendez-vous...
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 UTILISATEURS
+            ================================================== -->
+
+            <section
+                id="utilisateurs"
+                class="admin-section"
+                data-section-content="utilisateurs"
+            >
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <span>
+                            CITYCARE / GESTION
+                        </span>
+
+                        <h1>
+                            Utilisateurs
+                        </h1>
+
+                        <p>
+                            Tous les citoyens et administrateurs enregistrés.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="refreshUsers"
+                        class="secondary-button"
+                    >
+                        ↻ Actualiser
+                    </button>
+
+                </div>
+
+
+                <div class="module-card">
+
+                    <div class="toolbar">
+
+                        <input
+                            type="search"
+                            id="userSearch"
+                            placeholder="Rechercher un utilisateur..."
+                        >
+
+
+                        <select id="userRoleFilter">
+
+                            <option value="">
+                                Tous les rôles
+                            </option>
+
+                            <option value="citoyen">
+                                Citoyens
+                            </option>
+
+                            <option value="admin">
+                                Administrateurs
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table class="admin-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>ID</th>
+                                    <th>Utilisateur</th>
+                                    <th>Email</th>
+                                    <th>Username</th>
+                                    <th>Rôle</th>
+                                    <th>Création</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="usersTableBody">
+
+                                <tr>
+
+                                    <td
+                                        colspan="6"
+                                        class="table-loading"
+                                    >
+                                        Chargement...
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 TRANSPORT
+            ================================================== -->
+
+            <section
+                id="transport"
+                class="admin-section"
+                data-section-content="transport"
+            >
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <span>
+                            CITYCARE / GESTION
+                        </span>
+
+                        <h1>
+                            Transport
+                        </h1>
+
+                        <p>
+                            Gestion des lignes de transport CityCare.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="addTransportButton"
+                        class="primary-button"
+                    >
+                        + Nouvelle ligne
+                    </button>
+
+                </div>
+
+
+                <div class="module-card">
+
+                    <div class="toolbar">
+
+                        <input
+                            type="search"
+                            id="transportSearch"
+                            placeholder="Rechercher une ligne..."
+                        >
+
+                        <button
+                            type="button"
+                            id="refreshTransport"
+                            class="secondary-button"
+                        >
+                            ↻ Actualiser
+                        </button>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table class="admin-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>ID</th>
+                                    <th>Ligne</th>
+                                    <th>Départ</th>
+                                    <th>Arrivée</th>
+                                    <th>Actions</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="transportTableBody">
+
+                                <tr>
+
+                                    <td
+                                        colspan="5"
+                                        class="table-loading"
+                                    >
+                                        Chargement...
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 STATISTIQUES
+            ================================================== -->
+
+            <section
+                id="statistiques"
+                class="admin-section"
+                data-section-content="statistiques"
+            >
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <span>
+                            CITYCARE / ANALYSE
+                        </span>
+
+                        <h1>
+                            Statistiques
+                        </h1>
+
+                        <p>
+                            Vue analytique de l'activité de CityCare.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stats-grid">
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon blue">
+                            ◉
+                        </div>
+
+                        <div>
+
+                            <span>
+                                UTILISATEURS
+                            </span>
+
+                            <strong id="statsUsers">
+                                0
+                            </strong>
+
+                            <small>
+                                Total des comptes
+                            </small>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon orange">
+                            !
+                        </div>
+
+                        <div>
+
+                            <span>
+                                SIGNALEMENTS
+                            </span>
+
+                            <strong id="statsSignalements">
+                                0
+                            </strong>
+
+                            <small>
+                                Total enregistré
+                            </small>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon green">
+                            ◷
+                        </div>
+
+                        <div>
+
+                            <span>
+                                RENDEZ-VOUS
+                            </span>
+
+                            <strong id="statsRendezvous">
+                                0
+                            </strong>
+
+                            <small>
+                                Total enregistré
+                            </small>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon purple">
+                            ▣
+                        </div>
+
+                        <div>
+
+                            <span>
+                                TRANSPORT
+                            </span>
+
+                            <strong id="statsTransport">
+                                0
+                            </strong>
+
+                            <small>
+                                Lignes disponibles
+                            </small>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <span>
+                                SIGNALEMENTS
+                            </span>
+
+                            <h2>
+                                Répartition des statuts
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="progress-list">
+
+
+                        <div class="progress-item">
+
+                            <div>
+
+                                <span>
+                                    En attente
+                                </span>
+
+                                <strong id="statsPending">
+                                    0
+                                </strong>
+
+                            </div>
+
+                            <div class="progress-bar">
+
+                                <span
+                                    id="barPending"
+                                    style="width:0%"
+                                ></span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="progress-item">
+
+                            <div>
+
+                                <span>
+                                    En cours
+                                </span>
+
+                                <strong id="statsCours">
+                                    0
+                                </strong>
+
+                            </div>
+
+                            <div class="progress-bar">
+
+                                <span
+                                    id="barCours"
+                                    style="width:0%"
+                                ></span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="progress-item">
+
+                            <div>
+
+                                <span>
+                                    Résolus
+                                </span>
+
+                                <strong id="statsResolus">
+                                    0
+                                </strong>
+
+                            </div>
+
+                            <div class="progress-bar">
+
+                                <span
+                                    id="barResolus"
+                                    style="width:0%"
+                                ></span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SECURITE
+            ================================================== -->
+
+            <section
+                id="securite"
+                class="admin-section"
+                data-section-content="securite"
+            >
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <span>
+                            CITYCARE / SYSTÈME
+                        </span>
+
+                        <h1>
+                            Sécurité
+                        </h1>
+
+                        <p>
+                            État de sécurité de l'administration.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="security-grid">
+
+
+                    <article class="security-card success">
+
+                        <div class="security-card-icon">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Session administrateur
+                            </strong>
+
+                            <span>
+                                Authentification active
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="security-card success">
+
+                        <div class="security-card-icon">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Protection API
+                            </strong>
+
+                            <span>
+                                Accès réservé aux administrateurs
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="security-card success">
+
+                        <div class="security-card-icon">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Session HTTP
+                            </strong>
+
+                            <span>
+                                Cookie protégé
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="security-card">
+
+                        <div class="security-card-icon">
+                            ◉
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Administrateur connecté
+                            </strong>
+
+                            <span id="securityAdminName">
+                                Chargement...
+                            </span>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PARAMETRES
+            ================================================== -->
+
+            <section
+                id="parametres"
+                class="admin-section"
+                data-section-content="parametres"
+            >
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <span>
+                            CITYCARE / CONFIGURATION
+                        </span>
+
+                        <h1>
+                            Paramètres
+                        </h1>
+
+                        <p>
+                            Configuration de l'interface d'administration.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="settings-grid">
+
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span>
+                                    PROFIL
+                                </span>
+
+                                <h2>
+                                    Administrateur connecté
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="settings-list">
+
+
+                            <div class="setting-row">
+
+                                <div>
+
+                                    <strong>
+                                        Nom
+                                    </strong>
+
+                                    <span>
+                                        Nom de l'administrateur
+                                    </span>
+
+                                </div>
+
+                                <b id="settingName">
+                                    —
+                                </b>
+
+                            </div>
+
+
+                            <div class="setting-row">
+
+                                <div>
+
+                                    <strong>
+                                        Username
+                                    </strong>
+
+                                    <span>
+                                        Identifiant de connexion
+                                    </span>
+
+                                </div>
+
+                                <b id="settingUsername">
+                                    —
+                                </b>
+
+                            </div>
+
+
+                            <div class="setting-row">
+
+                                <div>
+
+                                    <strong>
+                                        Email
+                                    </strong>
+
+                                    <span>
+                                        Adresse électronique
+                                    </span>
+
+                                </div>
+
+                                <b id="settingEmail">
+                                    —
+                                </b>
+
+                            </div>
+
+
+                            <div class="setting-row">
+
+                                <div>
+
+                                    <strong>
+                                        Rôle
+                                    </strong>
+
+                                    <span>
+                                        Niveau d'accès
+                                    </span>
+
+                                </div>
+
+                                <b id="settingRole">
+                                    —
+                                </b>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span>
+                                    INTERFACE
+                                </span>
+
+                                <h2>
+                                    Préférences
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="settings-list">
+
+
+                            <div class="setting-row">
+
+                                <div>
+
+                                    <strong>
+                                        Actualisation automatique
+                                    </strong>
+
+                                    <span>
+                                        Actualiser les données régulièrement
+                                    </span>
+
+                                </div>
+
+                                <label class="switch">
+
+                                    <input
+                                        type="checkbox"
+                                        id="autoRefreshToggle"
+                                        checked
+                                    >
+
+                                    <span></span>
+
+                                </label>
+
+                            </div>
+
+
+                            <div class="setting-row">
+
+                                <div>
+
+                                    <strong>
+                                        Notifications
+                                    </strong>
+
+                                    <span>
+                                        Afficher les notifications système
+                                    </span>
+
+                                </div>
+
+                                <label class="switch">
+
+                                    <input
+                                        type="checkbox"
+                                        id="notificationsToggle"
+                                        checked
+                                    >
+
+                                    <span></span>
+
+                                </label>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <footer class="admin-footer">
+
+            <span>
+                © 2026 CityCare — Administration
+            </span>
+
+            <span>
+                Système de gestion urbaine
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     MODALE RENDEZ-VOUS
+====================================================== -->
+
+<div
+    class="modal-overlay"
+    id="rdvModal"
+    hidden
+>
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <span>
+                    RENDEZ-VOUS
+                </span>
+
+                <h2>
+                    Modifier le rendez-vous
+                </h2>
+
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                id="closeRdvModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="modal-body">
+
+            <div class="detail-grid">
+
+                <div>
+                    <span>
+                        Référence
+                    </span>
+
+                    <strong id="rdvDetailId">
+                        —
+                    </strong>
+                </div>
+
+                <div>
+                    <span>
+                        Citoyen
+                    </span>
+
+                    <strong id="rdvDetailUser">
+                        —
+                    </strong>
+                </div>
+
+                <div>
+                    <span>
+                        Centre
+                    </span>
+
+                    <strong id="rdvDetailCentre">
+                        —
+                    </strong>
+                </div>
+
+                <div>
+                    <span>
+                        Service
+                    </span>
+
+                    <strong id="rdvDetailService">
+                        —
+                    </strong>
+                </div>
+
+                <div>
+                    <span>
+                        Date
+                    </span>
+
+                    <strong id="rdvDetailDate">
+                        —
+                    </strong>
+                </div>
+
+                <div>
+                    <span>
+                        Heure
+                    </span>
+
+                    <strong id="rdvDetailTime">
+                        —
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <label class="form-field">
+
+                <span>
+                    Statut
+                </span>
+
+                <select id="rdvDetailStatus">
+
+                    <option value="En attente">
+                        En attente
+                    </option>
+
+                    <option value="En cours">
+                        En cours
+                    </option>
+
+                    <option value="Terminé">
+                        Terminé
+                    </option>
+
+                    <option value="Refusé">
+                        Refusé
+                    </option>
+
+                </select>
+
+            </label>
+
+        </div>
+
+
+        <div class="modal-footer">
+
+            <button
+                type="button"
+                class="secondary-button"
+                id="cancelRdvModal"
+            >
+                Annuler
+            </button>
+
+            <button
+                type="button"
+                class="primary-button"
+                id="saveRdvStatus"
+            >
+                Enregistrer
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MODALE TRANSPORT
+====================================================== -->
+
+<div
+    class="modal-overlay"
+    id="transportModal"
+    hidden
+>
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <span>
+                    TRANSPORT
+                </span>
+
+                <h2 id="transportModalTitle">
+                    Nouvelle ligne
+                </h2>
+
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                id="closeTransportModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="modal-body">
+
+            <input
+                type="hidden"
+                id="transportId"
+            >
+
+
+            <label class="form-field">
+
+                <span>
+                    Numéro de ligne
+                </span>
+
+                <input
+                    type="text"
+                    id="transportNumero"
+                    placeholder="Ex : 120"
+                >
+
+            </label>
+
+
+            <label class="form-field">
+
+                <span>
+                    Départ
+                </span>
+
+                <input
+                    type="text"
+                    id="transportDepart"
+                    placeholder="Point de départ"
+                >
+
+            </label>
+
+
+            <label class="form-field">
+
+                <span>
+                    Arrivée
+                </span>
+
+                <input
+                    type="text"
+                    id="transportArrivee"
+                    placeholder="Point d'arrivée"
+                >
+
+            </label>
+
+        </div>
+
+
+        <div class="modal-footer">
+
+            <button
+                type="button"
+                class="secondary-button"
+                id="cancelTransportModal"
+            >
+                Annuler
+            </button>
+
+            <button
+                type="button"
+                class="primary-button"
+                id="saveTransport"
+            >
+                Enregistrer
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MODALE SIGNALEMENT
+====================================================== -->
+
+<div
+    class="modal-overlay"
+    id="signalementModal"
+    hidden
+>
+
+    <div class="modal large">
+
+        <div class="modal-header">
+
+            <div>
+
+                <span>
+                    SIGNALEMENT
+                </span>
+
+                <h2>
+                    Détails du signalement
+                </h2>
+
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                id="closeSignalementModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="modal-body">
+
+            <div class="detail-grid">
+
+                <div>
+                    <span>
+                        Référence
+                    </span>
+
+                    <strong id="signalementDetailId">
+                        —
+                    </strong>
+                </div>
+
+                <div>
+                    <span>
+                        Citoyen
+                    </span>
+
+                    <strong id="signalementDetailUser">
+                        —
+                    </strong>
+                </div>
+
+                <div>
+                    <span>
+                        Catégorie
+                    </span>
+
+                    <strong id="signalementDetailCategory">
+                        —
+                    </strong>
+                </div>
+
+                <div>
+                    <span>
+                        Type
+                    </span>
+
+                    <strong id="signalementDetailType">
+                        —
+                    </strong>
+                </div>
+
+                <div>
+                    <span>
+                        Quartier
+                    </span>
+
+                    <strong id="signalementDetailQuartier">
+                        —
+                    </strong>
+                </div>
+
+                <div>
+                    <span>
+                        Date
+                    </span>
+
+                    <strong id="signalementDetailDate">
+                        —
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="description-box">
+
+                <span>
+                    TITRE
+                </span>
+
+                <strong id="signalementDetailTitle">
+                    —
+                </strong>
+
+
+                <span>
+                    DESCRIPTION
+                </span>
+
+                <p id="signalementDetailDescription">
+                    —
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="modal-footer">
+
+            <button
+                type="button"
+                class="secondary-button"
+                id="cancelSignalementModal"
+            >
+                Fermer
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     TOAST
+====================================================== -->
+
+<div
+    id="toastContainer"
+    class="toast-container"
+></div>
+
+
+<script src="/js/admin.js"></script>
+
+</body>
+
+</html>

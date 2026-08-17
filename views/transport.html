@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Consultez les lignes de transport public disponibles à Antananarivo avec CityCare."
+    >
+
+    <title>Transport public | CityCare</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/transport.css"
+    >
+
+</head>
+
+<body>
+
+<aside class="sidebar">
+
+    <div class="sidebar-header">
+
+        <div class="logo-mark">
+            🏙️
+        </div>
+
+        <div class="logo-text">
+
+            <h2>CityCare</h2>
+
+            <p>Espace citoyen</p>
+
+        </div>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+        <p class="nav-title">
+            Navigation
+        </p>
+
+        <ul>
+
+            <li>
+                <a href="/dashboard">
+                    <span class="nav-icon">🏠</span>
+                    <span>Tableau de bord</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="/signalement">
+                    <span class="nav-icon">📢</span>
+                    <span>Signalements</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="/rendezvous">
+                    <span class="nav-icon">📅</span>
+                    <span>Rendez-vous</span>
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="/transport"
+                    class="active"
+                >
+                    <span class="nav-icon">🚌</span>
+                    <span>Transport</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="/profile">
+                    <span class="nav-icon">👤</span>
+                    <span>Mon profil</span>
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <div class="sidebar-help">
+
+        <div class="help-icon">
+            💡
+        </div>
+
+        <h3>
+            Besoin d'aide ?
+        </h3>
+
+        <p>
+            Contactez notre service citoyen
+            pour toute question.
+        </p>
+
+        <a
+            href="/rendezvous"
+            class="help-button"
+        >
+            Nous contacter
+        </a>
+
+    </div>
+
+
+    <div class="sidebar-footer">
+
+        <a
+            href="/logout"
+            id="btnLogout"
+            class="logout-link"
+        >
+            <span>🚪</span>
+            <span>Déconnexion</span>
+        </a>
+
+    </div>
+
+</aside>
+
+
+<main class="main">
+
+    <header class="header">
+
+        <div class="header-left">
+
+            <span class="page-icon">
+                🚌
+            </span>
+
+            <div>
+
+                <h1>
+                    Transport public
+                </h1>
+
+                <p>
+                    Consultez les lignes de transport
+                    disponibles à Antananarivo.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="header-actions">
+
+            <a
+                href="/profile"
+                class="profile-button"
+            >
+                👤
+                <span>Mon profil</span>
+            </a>
+
+            <a
+                href="/dashboard"
+                class="account-button"
+            >
+                Voir mon compte
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <section class="welcome-section">
+
+        <div class="welcome-card">
+
+            <div class="welcome-avatar">
+                👤
+            </div>
+
+            <div>
+
+                <p class="welcome-label">
+                    Bienvenue
+                </p>
+
+                <h2 id="nomUtilisateur">
+                    Citoyen
+                </h2>
+
+                <p>
+                    Retrouvez rapidement une ligne
+                    correspondant à votre trajet.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="transport-stats">
+
+        <div class="stat-card">
+
+            <div class="stat-icon blue">
+                🚌
+            </div>
+
+            <div class="stat-content">
+
+                <span class="stat-label">
+                    Lignes disponibles
+                </span>
+
+                <strong id="totalLignes">
+                    0
+                </strong>
+
+                <span class="stat-description">
+                    Lignes enregistrées
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon pink">
+                📍
+            </div>
+
+            <div class="stat-content">
+
+                <span class="stat-label">
+                    Ville
+                </span>
+
+                <strong>
+                    Antananarivo
+                </strong>
+
+                <span class="stat-description">
+                    Capitale de Madagascar
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon purple">
+                👥
+            </div>
+
+            <div class="stat-content">
+
+                <span class="stat-label">
+                    Réseau public
+                </span>
+
+                <strong>
+                    Transport urbain
+                </strong>
+
+                <span class="stat-description">
+                    Pour tous les citoyens
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon orange">
+                🕐
+            </div>
+
+            <div class="stat-content">
+
+                <span class="stat-label">
+                    Horaires
+                </span>
+
+                <strong>
+                    05h00 - 21h00
+                </strong>
+
+                <span class="stat-description">
+                    Service quotidien
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="card search-card">
+
+        <div class="section-header">
+
+            <div>
+
+                <div class="section-title-row">
+
+                    <span class="section-icon">
+                        🔎
+                    </span>
+
+                    <h2>
+                        Rechercher une ligne
+                    </h2>
+
+                </div>
+
+                <p>
+                    Recherchez facilement une ligne
+                    par son numéro, son point de départ
+                    ou sa destination.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="search-form">
+
+            <div class="search-input-container">
+
+                <label for="recherche">
+                    Numéro, départ ou destination
+                </label>
+
+                <div class="input-wrapper">
+
+                    <span class="input-icon">
+                        🔎
+                    </span>
+
+                    <input
+                        type="search"
+                        id="recherche"
+                        name="recherche"
+                        placeholder="Ex : 119, Analakely, Anosizato..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="search-buttons">
+
+                <button
+                    type="button"
+                    id="btnRecherche"
+                    class="btn-primary"
+                >
+                    🔎
+                    Rechercher
+                </button>
+
+                <button
+                    type="button"
+                    id="btnReset"
+                    class="btn-secondary"
+                >
+                    ↻
+                    Réinitialiser
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="card results-card">
+
+        <div class="results-header">
+
+            <div>
+
+                <div class="section-title-row">
+
+                    <span class="section-icon">
+                        🚌
+                    </span>
+
+                    <h2>
+                        Liste des lignes
+                    </h2>
+
+                </div>
+
+                <p id="messageTransport">
+                    Chargement des lignes...
+                </p>
+
+            </div>
+
+
+            <div class="results-count">
+
+                <span>
+                    Résultats
+                </span>
+
+                <strong id="nombreResultats">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="messageErreur"
+            class="message-error"
+            hidden
+        ></div>
+
+
+        <div class="table-container">
+
+            <table class="transport-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            # Numéro
+                        </th>
+
+                        <th>
+                            📍 Départ
+                        </th>
+
+                        <th>
+                            🏁 Arrivée
+                        </th>
+
+                        <th>
+                            🚌 Trajet
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="tableTransport">
+
+                    <tr>
+
+                        <td
+                            colspan="4"
+                            class="loading-cell"
+                        >
+
+                            <div class="loading">
+
+                                <span class="loading-spinner"></span>
+
+                                <span>
+                                    Chargement des lignes...
+                                </span>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <div
+            id="aucunResultat"
+            class="empty-state"
+            hidden
+        >
+
+            <div class="empty-icon">
+                🚌
+            </div>
+
+            <h3>
+                Aucune ligne trouvée
+            </h3>
+
+            <p>
+                Aucune ligne de transport ne correspond
+                à votre recherche.
+            </p>
+
+            <button
+                type="button"
+                id="btnResetEmpty"
+                class="btn-primary"
+            >
+                Voir toutes les lignes
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section class="tip-card">
+
+        <div class="tip-icon">
+            💡
+        </div>
+
+        <div>
+
+            <h3>
+                Conseil
+            </h3>
+
+            <p>
+                Utilisez le numéro de la ligne ou le nom
+                d'un quartier pour trouver rapidement
+                votre trajet.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <footer class="footer">
+
+        <p>
+            © 2026 CityCare — Service citoyen
+        </p>
+
+        <div>
+
+            <a href="/dashboard">
+                Tableau de bord
+            </a>
+
+            <span>•</span>
+
+            <a href="/profile">
+                Mon profil
+            </a>
+
+        </div>
+
+    </footer>
+
+</main>
+
+
+<script src="/js/transport.js"></script>
+
+</body>
+
+</html>

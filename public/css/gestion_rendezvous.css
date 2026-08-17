@@ -1,0 +1,2549 @@
+/* ==========================================================
+   CITYCARE — GESTION DES RENDEZ-VOUS
+   public/css/gestion_rendezvous.css
+   Nouvelle interface administration
+   ========================================================== */
+
+
+/* ==========================================================
+   VARIABLES
+   ========================================================== */
+
+:root {
+
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #eff6ff;
+
+    --success: #16a34a;
+    --success-light: #f0fdf4;
+
+    --warning: #f59e0b;
+    --warning-light: #fffbeb;
+
+    --danger: #dc2626;
+    --danger-light: #fef2f2;
+
+    --purple: #7c3aed;
+    --purple-light: #f5f3ff;
+
+    --cyan: #0891b2;
+    --cyan-light: #ecfeff;
+
+    --dark: #0f172a;
+    --dark-2: #1e293b;
+    --text: #334155;
+    --text-light: #64748b;
+    --muted: #94a3b8;
+
+    --white: #ffffff;
+
+    --bg: #f8fafc;
+    --bg-soft: #f1f5f9;
+
+    --border: #e2e8f0;
+    --border-dark: #cbd5e1;
+
+    --sidebar-width: 270px;
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-xl: 24px;
+
+    --shadow-sm:
+        0 1px 2px rgba(15, 23, 42, 0.04);
+
+    --shadow-md:
+        0 8px 25px rgba(15, 23, 42, 0.07);
+
+    --shadow-lg:
+        0 20px 50px rgba(15, 23, 42, 0.12);
+
+    --transition:
+        0.2s ease;
+}
+
+
+/* ==========================================================
+   RESET
+   ========================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    font-family:
+        "Inter",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    min-height: 100vh;
+
+    line-height: 1.5;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ==========================================================
+   APPLICATION
+   ========================================================== */
+
+.admin-rdv-app {
+
+    display: flex;
+
+    min-height: 100vh;
+
+    width: 100%;
+}
+
+
+/* ==========================================================
+   SIDEBAR
+   ========================================================== */
+
+.admin-rdv-sidebar {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: var(--sidebar-width);
+
+    height: 100vh;
+
+    background:
+        linear-gradient(
+            180deg,
+            #0f172a 0%,
+            #111c33 100%
+        );
+
+    color: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    z-index: 1000;
+
+    overflow-y: auto;
+
+    box-shadow:
+        10px 0 30px rgba(15, 23, 42, 0.08);
+
+    transition:
+        transform var(--transition);
+}
+
+
+/* ==========================================================
+   BRAND
+   ========================================================== */
+
+.admin-rdv-brand {
+
+    height: 82px;
+
+    padding: 0 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.07);
+}
+
+.admin-rdv-brand-logo {
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #3b82f6,
+            #06b6d4
+        );
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+.admin-rdv-brand-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+.admin-rdv-brand-text strong {
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    letter-spacing: -0.3px;
+}
+
+.admin-rdv-brand-text span {
+
+    color: #94a3b8;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+}
+
+
+/* ==========================================================
+   PROFIL ADMIN
+   ========================================================== */
+
+.admin-rdv-profile {
+
+    margin: 20px 16px;
+
+    padding: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255, 255, 255, 0.055);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.06);
+}
+
+.admin-rdv-avatar {
+
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+.admin-rdv-profile-info {
+
+    min-width: 0;
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+.admin-rdv-profile-info strong {
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.admin-rdv-profile-info span {
+
+    color: #94a3b8;
+
+    font-size: 11px;
+}
+
+.admin-rdv-online {
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    box-shadow:
+        0 0 0 4px rgba(34, 197, 94, 0.12);
+}
+
+
+/* ==========================================================
+   NAVIGATION
+   ========================================================== */
+
+.admin-rdv-navigation {
+
+    padding: 4px 12px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.admin-rdv-nav-title {
+
+    padding:
+        18px 12px 8px;
+
+    color: #64748b;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+}
+
+.admin-rdv-nav-link {
+
+    min-height: 46px;
+
+    padding: 0 13px;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    transition:
+        background var(--transition),
+        color var(--transition),
+        transform var(--transition);
+}
+
+.admin-rdv-nav-link:hover {
+
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    color: white;
+
+    transform: translateX(2px);
+}
+
+.admin-rdv-nav-link.active {
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(37, 99, 235, 0.25),
+            rgba(37, 99, 235, 0.10)
+        );
+
+    color: white;
+
+    border:
+        1px solid rgba(59, 130, 246, 0.18);
+
+    box-shadow:
+        inset 3px 0 0 #3b82f6;
+}
+
+.admin-rdv-nav-icon {
+
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    color: #94a3b8;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+}
+
+.admin-rdv-nav-link.active .admin-rdv-nav-icon {
+
+    color: #60a5fa;
+
+    background:
+        rgba(59, 130, 246, 0.13);
+}
+
+.admin-rdv-nav-badge {
+
+    margin-left: auto;
+
+    min-width: 21px;
+    height: 21px;
+
+    padding: 0 6px;
+
+    border-radius: 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #f59e0b;
+
+    color: white;
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+
+/* ==========================================================
+   SIDEBAR FOOTER
+   ========================================================== */
+
+.admin-rdv-sidebar-footer {
+
+    margin-top: auto;
+
+    padding: 16px;
+}
+
+.admin-rdv-security {
+
+    padding: 12px;
+
+    margin-bottom: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(34, 197, 94, 0.07);
+
+    border:
+        1px solid rgba(34, 197, 94, 0.10);
+}
+
+.admin-rdv-security-icon {
+
+    width: 28px;
+    height: 28px;
+
+    flex-shrink: 0;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(34, 197, 94, 0.13);
+
+    color: #4ade80;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+.admin-rdv-security div:last-child {
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+.admin-rdv-security strong {
+
+    color: #d1fae5;
+
+    font-size: 10px;
+}
+
+.admin-rdv-security span {
+
+    color: #64748b;
+
+    font-size: 9px;
+}
+
+.admin-rdv-logout {
+
+    width: 100%;
+
+    min-height: 42px;
+
+    border: 0;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    color: #94a3b8;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    transition:
+        background var(--transition),
+        color var(--transition);
+}
+
+.admin-rdv-logout:hover {
+
+    background:
+        rgba(220, 38, 38, 0.12);
+
+    color: #fca5a5;
+}
+
+
+/* ==========================================================
+   MAIN
+   ========================================================== */
+
+.admin-rdv-main {
+
+    margin-left: var(--sidebar-width);
+
+    width:
+        calc(100% - var(--sidebar-width));
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* ==========================================================
+   TOPBAR
+   ========================================================== */
+
+.admin-rdv-topbar {
+
+    height: 82px;
+
+    padding: 0 34px;
+
+    background: white;
+
+    border-bottom:
+        1px solid var(--border);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+}
+
+.admin-rdv-topbar-left {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+.admin-rdv-menu-button {
+
+    display: none;
+
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    background: white;
+
+    color: var(--dark);
+
+    font-size: 18px;
+}
+
+.admin-rdv-heading {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+.admin-rdv-heading span {
+
+    color: var(--primary);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+}
+
+.admin-rdv-heading h1 {
+
+    color: var(--dark);
+
+    font-size: 19px;
+
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+}
+
+.admin-rdv-topbar-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 24px;
+}
+
+
+/* ==========================================================
+   HORLOGE
+   ========================================================== */
+
+.admin-rdv-clock {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        8px 12px;
+
+    border-radius: 9px;
+
+    background: var(--bg);
+
+    border: 1px solid var(--border);
+}
+
+.admin-rdv-clock > span {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    box-shadow:
+        0 0 0 4px rgba(34, 197, 94, 0.10);
+}
+
+.admin-rdv-clock strong {
+
+    color: var(--text);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    font-variant-numeric: tabular-nums;
+}
+
+
+/* ==========================================================
+   HEADER ADMIN
+   ========================================================== */
+
+.admin-rdv-header-user {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.admin-rdv-header-avatar {
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dbeafe,
+            #ede9fe
+        );
+
+    color: var(--primary);
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+.admin-rdv-header-user > div:last-child {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1px;
+}
+
+.admin-rdv-header-user strong {
+
+    color: var(--dark);
+
+    font-size: 11px;
+}
+
+.admin-rdv-header-user span {
+
+    color: var(--text-light);
+
+    font-size: 9px;
+}
+
+
+/* ==========================================================
+   CONTENU
+   ========================================================== */
+
+.admin-rdv-content {
+
+    width: 100%;
+
+    max-width: 1600px;
+
+    margin: 0 auto;
+
+    padding: 30px 34px 50px;
+}
+
+
+/* ==========================================================
+   PAGE HEADER
+   ========================================================== */
+
+.admin-rdv-page-header {
+
+    margin-bottom: 26px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.admin-rdv-overline {
+
+    display: inline-block;
+
+    margin-bottom: 6px;
+
+    color: var(--primary);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+.admin-rdv-page-header h2 {
+
+    color: var(--dark);
+
+    font-size: 30px;
+
+    line-height: 1.1;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+}
+
+.admin-rdv-page-header p {
+
+    margin-top: 8px;
+
+    color: var(--text-light);
+
+    font-size: 12px;
+}
+
+.admin-rdv-refresh-button {
+
+    min-height: 42px;
+
+    padding: 0 17px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    background: white;
+
+    color: var(--text);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        border-color var(--transition),
+        color var(--transition),
+        transform var(--transition);
+}
+
+.admin-rdv-refresh-button:hover {
+
+    color: var(--primary);
+
+    border-color:
+        #bfdbfe;
+
+    transform: translateY(-1px);
+}
+
+.admin-rdv-refresh-button span {
+
+    font-size: 18px;
+
+    line-height: 1;
+}
+
+
+/* ==========================================================
+   STATISTIQUES
+   ========================================================== */
+
+.admin-rdv-stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+
+    gap: 14px;
+
+    margin-bottom: 22px;
+}
+
+.admin-rdv-stat-card {
+
+    min-height: 122px;
+
+    padding: 18px;
+
+    background: white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
+}
+
+.admin-rdv-stat-card:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: var(--shadow-md);
+
+    border-color:
+        var(--border-dark);
+}
+
+.admin-rdv-stat-icon {
+
+    width: 46px;
+    height: 46px;
+
+    flex-shrink: 0;
+
+    border-radius: 13px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
+
+    font-weight: 800;
+}
+
+.admin-rdv-stat-icon.blue {
+
+    color: var(--primary);
+
+    background: var(--primary-light);
+}
+
+.admin-rdv-stat-icon.orange {
+
+    color: var(--warning);
+
+    background: var(--warning-light);
+}
+
+.admin-rdv-stat-icon.green {
+
+    color: var(--success);
+
+    background: var(--success-light);
+}
+
+.admin-rdv-stat-icon.red {
+
+    color: var(--danger);
+
+    background: var(--danger-light);
+}
+
+.admin-rdv-stat-icon.purple {
+
+    color: var(--purple);
+
+    background: var(--purple-light);
+}
+
+.admin-rdv-stat-card > div:last-child {
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+.admin-rdv-stat-card span {
+
+    color: var(--text-light);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.admin-rdv-stat-card strong {
+
+    margin-top: 1px;
+
+    color: var(--dark);
+
+    font-size: 25px;
+
+    line-height: 1.1;
+
+    font-weight: 800;
+}
+
+.admin-rdv-stat-card small {
+
+    margin-top: 4px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* ==========================================================
+   MANAGEMENT PANEL
+   ========================================================== */
+
+.admin-rdv-management {
+
+    background: white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    box-shadow: var(--shadow-sm);
+
+    overflow: hidden;
+}
+
+
+/* ==========================================================
+   TOOLBAR
+   ========================================================== */
+
+.admin-rdv-toolbar {
+
+    min-height: 92px;
+
+    padding: 18px 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+.admin-rdv-toolbar-title {
+
+    flex-shrink: 0;
+}
+
+.admin-rdv-toolbar-title span {
+
+    color: var(--primary);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+}
+
+.admin-rdv-toolbar-title h3 {
+
+    margin-top: 2px;
+
+    color: var(--dark);
+
+    font-size: 16px;
+
+    font-weight: 800;
+}
+
+.admin-rdv-toolbar-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+}
+
+
+/* ==========================================================
+   RECHERCHE
+   ========================================================== */
+
+.admin-rdv-search {
+
+    width: 190px;
+
+    height: 38px;
+
+    padding: 0 11px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    background: var(--bg);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 9px;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+.admin-rdv-search:focus-within {
+
+    border-color:
+        #93c5fd;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.admin-rdv-search > span {
+
+    color: var(--muted);
+
+    font-size: 16px;
+}
+
+.admin-rdv-search input {
+
+    width: 100%;
+
+    border: 0;
+
+    outline: 0;
+
+    background: transparent;
+
+    color: var(--dark);
+
+    font-size: 10px;
+}
+
+.admin-rdv-search input::placeholder {
+
+    color: var(--muted);
+}
+
+
+/* ==========================================================
+   FILTRES
+   ========================================================== */
+
+.admin-rdv-filter {
+
+    height: 38px;
+
+    min-width: 135px;
+
+    padding:
+        0 10px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 9px;
+
+    background: white;
+
+    color: var(--text);
+
+    outline: none;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+.admin-rdv-filter:focus {
+
+    border-color:
+        #93c5fd;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+#dateFilter {
+
+    min-width: 135px;
+}
+
+
+/* ==========================================================
+   RESET FILTRES
+   ========================================================== */
+
+.admin-rdv-reset {
+
+    width: 38px;
+    height: 38px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 9px;
+
+    background: white;
+
+    color: var(--text-light);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
+
+    transition:
+        color var(--transition),
+        background var(--transition),
+        border-color var(--transition);
+}
+
+.admin-rdv-reset:hover {
+
+    color: var(--primary);
+
+    background: var(--primary-light);
+
+    border-color:
+        #bfdbfe;
+}
+
+
+/* ==========================================================
+   TABLEAU
+   ========================================================== */
+
+.admin-rdv-table-wrapper {
+
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+.admin-rdv-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 920px;
+}
+
+.admin-rdv-table thead {
+
+    background:
+        #f8fafc;
+}
+
+.admin-rdv-table th {
+
+    height: 45px;
+
+    padding:
+        0 15px;
+
+    border-bottom:
+        1px solid var(--border);
+
+    color: var(--text-light);
+
+    text-align: left;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.9px;
+
+    white-space: nowrap;
+}
+
+.admin-rdv-table td {
+
+    padding:
+        13px 15px;
+
+    border-bottom:
+        1px solid #f1f5f9;
+
+    color: var(--text);
+
+    font-size: 10px;
+
+    vertical-align: middle;
+}
+
+.admin-rdv-table tbody tr {
+
+    transition:
+        background var(--transition);
+}
+
+.admin-rdv-table tbody tr:hover {
+
+    background:
+        #f8fbff;
+}
+
+.admin-rdv-table tbody tr:last-child td {
+
+    border-bottom: 0;
+}
+
+
+/* ==========================================================
+   CHARGEMENT
+   ========================================================== */
+
+.admin-rdv-loading {
+
+    height: 230px;
+
+    text-align: center !important;
+
+    color: var(--text-light) !important;
+}
+
+.admin-rdv-loading > div {
+
+    margin: 0 auto 9px;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+    font-size: 18px;
+}
+
+.admin-rdv-loading strong {
+
+    display: block;
+
+    color: var(--dark);
+
+    font-size: 12px;
+}
+
+.admin-rdv-loading span {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+
+/* ==========================================================
+   PAGINATION
+   ========================================================== */
+
+.admin-rdv-pagination {
+
+    min-height: 62px;
+
+    padding:
+        12px 20px;
+
+    border-top:
+        1px solid var(--border);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+.admin-rdv-pagination > div:first-child span {
+
+    color: var(--text-light);
+
+    font-size: 10px;
+
+    font-weight: 600;
+}
+
+.admin-rdv-pagination-controls {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.admin-rdv-pagination-controls button {
+
+    width: 31px;
+    height: 31px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 8px;
+
+    background: white;
+
+    color: var(--text);
+
+    font-size: 13px;
+
+    transition:
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition);
+}
+
+.admin-rdv-pagination-controls button:hover:not(:disabled) {
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+    border-color:
+        #bfdbfe;
+}
+
+.admin-rdv-pagination-controls button:disabled {
+
+    opacity: 0.4;
+
+    cursor: not-allowed;
+}
+
+#currentPage {
+
+    min-width: 30px;
+
+    height: 30px;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+
+/* ==========================================================
+   ÉTAT VIDE
+   ========================================================== */
+
+.admin-rdv-empty {
+
+    margin-top: 20px;
+
+    padding: 55px 20px;
+
+    background: white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    text-align: center;
+}
+
+.admin-rdv-empty-icon {
+
+    width: 60px;
+    height: 60px;
+
+    margin: 0 auto 15px;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+    font-size: 25px;
+}
+
+.admin-rdv-empty h3 {
+
+    color: var(--dark);
+
+    font-size: 16px;
+
+    font-weight: 800;
+}
+
+.admin-rdv-empty p {
+
+    margin:
+        6px auto 18px;
+
+    max-width: 400px;
+
+    color: var(--text-light);
+
+    font-size: 11px;
+}
+
+.admin-rdv-empty button {
+
+    min-height: 38px;
+
+    padding: 0 15px;
+
+    border: 0;
+
+    border-radius: 9px;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    transition:
+        background var(--transition),
+        transform var(--transition);
+}
+
+.admin-rdv-empty button:hover {
+
+    background: var(--primary-dark);
+
+    transform: translateY(-1px);
+}
+
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+
+.admin-rdv-footer {
+
+    margin-top: auto;
+
+    min-height: 60px;
+
+    padding:
+        0 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    border-top:
+        1px solid var(--border);
+
+    background: white;
+}
+
+
+/* ==========================================================
+   MODALES
+   ========================================================== */
+
+.admin-rdv-modal-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 3000;
+
+    padding: 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(15, 23, 42, 0.55);
+
+    backdrop-filter:
+        blur(5px);
+}
+
+.admin-rdv-modal-overlay[hidden] {
+
+    display: none;
+}
+
+.admin-rdv-modal {
+
+    width: min(620px, 100%);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow: var(--shadow-lg);
+
+    animation:
+        modalAppear 0.2s ease;
+}
+
+@keyframes modalAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(12px)
+            scale(0.98);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* ==========================================================
+   HEADER MODALE
+   ========================================================== */
+
+.admin-rdv-modal-header {
+
+    min-height: 76px;
+
+    padding:
+        18px 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+.admin-rdv-modal-header span {
+
+    color: var(--primary);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+}
+
+.admin-rdv-modal-header h3 {
+
+    margin-top: 3px;
+
+    color: var(--dark);
+
+    font-size: 17px;
+
+    font-weight: 800;
+}
+
+.admin-rdv-modal-close {
+
+    width: 34px;
+    height: 34px;
+
+    border: 0;
+
+    border-radius: 9px;
+
+    background: var(--bg);
+
+    color: var(--text-light);
+
+    font-size: 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        background var(--transition),
+        color var(--transition);
+}
+
+.admin-rdv-modal-close:hover {
+
+    background: var(--danger-light);
+
+    color: var(--danger);
+}
+
+
+/* ==========================================================
+   CORPS MODALE
+   ========================================================== */
+
+.admin-rdv-modal-body {
+
+    padding: 22px;
+}
+
+
+/* ==========================================================
+   DETAILS
+   ========================================================== */
+
+.admin-rdv-details-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+}
+
+.admin-rdv-detail {
+
+    min-height: 70px;
+
+    padding: 13px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 11px;
+
+    background: #fafcff;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 3px;
+}
+
+.admin-rdv-detail.full {
+
+    grid-column: 1 / -1;
+}
+
+.admin-rdv-detail span {
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.6px;
+}
+
+.admin-rdv-detail strong {
+
+    color: var(--dark);
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+
+/* ==========================================================
+   ÉDITEUR STATUT
+   ========================================================== */
+
+.admin-rdv-status-editor {
+
+    margin-top: 18px;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: var(--primary-light);
+
+    border:
+        1px solid #dbeafe;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+.admin-rdv-status-editor label {
+
+    color: var(--dark);
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+.admin-rdv-status-editor select {
+
+    min-width: 170px;
+
+    height: 38px;
+
+    padding:
+        0 10px;
+
+    border:
+        1px solid #bfdbfe;
+
+    border-radius: 9px;
+
+    background: white;
+
+    color: var(--dark);
+
+    outline: none;
+
+    font-size: 10px;
+
+    font-weight: 600;
+}
+
+
+/* ==========================================================
+   FOOTER MODALE
+   ========================================================== */
+
+.admin-rdv-modal-footer {
+
+    min-height: 72px;
+
+    padding:
+        14px 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 9px;
+
+    border-top:
+        1px solid var(--border);
+}
+
+.admin-rdv-secondary-button,
+.admin-rdv-primary-button,
+.admin-rdv-danger-button {
+
+    min-height: 39px;
+
+    padding:
+        0 17px;
+
+    border-radius: 9px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    transition:
+        background var(--transition),
+        transform var(--transition);
+}
+
+.admin-rdv-secondary-button {
+
+    border:
+        1px solid var(--border);
+
+    background: white;
+
+    color: var(--text);
+}
+
+.admin-rdv-secondary-button:hover {
+
+    background: var(--bg);
+
+    transform: translateY(-1px);
+}
+
+.admin-rdv-primary-button {
+
+    border: 0;
+
+    background: var(--primary);
+
+    color: white;
+
+    box-shadow:
+        0 6px 15px rgba(37, 99, 235, 0.20);
+}
+
+.admin-rdv-primary-button:hover {
+
+    background: var(--primary-dark);
+
+    transform: translateY(-1px);
+}
+
+.admin-rdv-danger-button {
+
+    border: 0;
+
+    background: var(--danger);
+
+    color: white;
+
+    box-shadow:
+        0 6px 15px rgba(220, 38, 38, 0.18);
+}
+
+.admin-rdv-danger-button:hover {
+
+    background: #b91c1c;
+
+    transform: translateY(-1px);
+}
+
+
+/* ==========================================================
+   MODALE SUPPRESSION
+   ========================================================== */
+
+.admin-rdv-delete-modal {
+
+    width: min(460px, 100%);
+
+    text-align: center;
+}
+
+.admin-rdv-delete-modal
+.admin-rdv-modal-header {
+
+    text-align: left;
+}
+
+.admin-rdv-delete-icon {
+
+    width: 62px;
+    height: 62px;
+
+    margin:
+        5px auto 18px;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--danger-light);
+
+    color: var(--danger);
+
+    font-size: 25px;
+
+    font-weight: 800;
+}
+
+.admin-rdv-delete-modal
+.admin-rdv-modal-body p {
+
+    color: var(--text-light);
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+.admin-rdv-delete-modal
+.admin-rdv-modal-body strong {
+
+    display: block;
+
+    margin-top: 12px;
+
+    color: var(--dark);
+
+    font-size: 13px;
+}
+
+.admin-rdv-delete-warning {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--danger);
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+.admin-rdv-delete-modal
+.admin-rdv-modal-footer {
+
+    justify-content: center;
+}
+
+
+/* ==========================================================
+   RESPONSIVE — TABLETTE
+   ========================================================== */
+
+@media (max-width: 1250px) {
+
+    :root {
+        --sidebar-width: 235px;
+    }
+
+    .admin-rdv-content {
+
+        padding:
+            25px 24px 40px;
+    }
+
+    .admin-rdv-stats {
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+    .admin-rdv-toolbar {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .admin-rdv-toolbar-actions {
+
+        width: 100%;
+
+        justify-content: flex-start;
+    }
+
+    .admin-rdv-search {
+
+        width: 220px;
+    }
+}
+
+
+/* ==========================================================
+   RESPONSIVE — TABLETTE PETITE
+   ========================================================== */
+
+@media (max-width: 950px) {
+
+    .admin-rdv-sidebar {
+
+        transform:
+            translateX(-100%);
+    }
+
+    .admin-rdv-sidebar.open {
+
+        transform:
+            translateX(0);
+    }
+
+    .admin-rdv-main {
+
+        margin-left: 0;
+
+        width: 100%;
+    }
+
+    .admin-rdv-menu-button {
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+    }
+
+    .admin-rdv-topbar {
+
+        padding:
+            0 20px;
+    }
+
+    .admin-rdv-content {
+
+        padding:
+            24px 20px 35px;
+    }
+
+    .admin-rdv-stats {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .admin-rdv-header-user {
+
+        display: none;
+    }
+
+    .admin-rdv-clock {
+
+        display: none;
+    }
+}
+
+
+/* ==========================================================
+   RESPONSIVE — MOBILE
+   ========================================================== */
+
+@media (max-width: 650px) {
+
+    .admin-rdv-topbar {
+
+        height: 70px;
+    }
+
+    .admin-rdv-heading h1 {
+
+        font-size: 16px;
+    }
+
+    .admin-rdv-heading span {
+
+        font-size: 8px;
+    }
+
+    .admin-rdv-content {
+
+        padding:
+            20px 14px 30px;
+    }
+
+    .admin-rdv-page-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .admin-rdv-page-header h2 {
+
+        font-size: 25px;
+    }
+
+    .admin-rdv-refresh-button {
+
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .admin-rdv-stats {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 10px;
+    }
+
+    .admin-rdv-stat-card {
+
+        min-height: 95px;
+    }
+
+    .admin-rdv-toolbar {
+
+        padding:
+            16px;
+    }
+
+    .admin-rdv-toolbar-actions {
+
+        display: grid;
+
+        grid-template-columns:
+            1fr 1fr;
+
+        width: 100%;
+    }
+
+    .admin-rdv-search {
+
+        width: 100%;
+
+        grid-column:
+            1 / -1;
+    }
+
+    .admin-rdv-filter {
+
+        width: 100%;
+
+        min-width: 0;
+    }
+
+    #dateFilter {
+
+        width: 100%;
+
+        min-width: 0;
+    }
+
+    .admin-rdv-reset {
+
+        width: 100%;
+    }
+
+    .admin-rdv-pagination {
+
+        padding:
+            12px 14px;
+    }
+
+    .admin-rdv-footer {
+
+        min-height: auto;
+
+        padding:
+            16px 14px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 4px;
+    }
+
+    .admin-rdv-modal-overlay {
+
+        padding: 10px;
+    }
+
+    .admin-rdv-modal {
+
+        border-radius: 16px;
+
+        max-height: 94vh;
+    }
+
+    .admin-rdv-details-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .admin-rdv-detail.full {
+
+        grid-column: auto;
+    }
+
+    .admin-rdv-status-editor {
+
+        align-items: stretch;
+
+        flex-direction: column;
+    }
+
+    .admin-rdv-status-editor select {
+
+        width: 100%;
+    }
+
+    .admin-rdv-modal-footer {
+
+        padding:
+            13px 16px;
+
+        flex-direction: column-reverse;
+    }
+
+    .admin-rdv-secondary-button,
+    .admin-rdv-primary-button,
+    .admin-rdv-danger-button {
+
+        width: 100%;
+    }
+}
+
+
+/* ==========================================================
+   MOBILE TRÈS PETIT
+   ========================================================== */
+
+@media (max-width: 400px) {
+
+    .admin-rdv-brand {
+
+        padding:
+            0 18px;
+    }
+
+    .admin-rdv-topbar {
+
+        padding:
+            0 14px;
+    }
+
+    .admin-rdv-heading span {
+
+        display: none;
+    }
+
+    .admin-rdv-page-header h2 {
+
+        font-size: 23px;
+    }
+
+    .admin-rdv-stat-card {
+
+        padding: 14px;
+    }
+
+    .admin-rdv-stat-icon {
+
+        width: 42px;
+        height: 42px;
+    }
+}
+
+
+/* ==========================================================
+   SCROLLBAR
+   ========================================================== */
+
+.admin-rdv-sidebar::-webkit-scrollbar,
+.admin-rdv-table-wrapper::-webkit-scrollbar,
+.admin-rdv-modal::-webkit-scrollbar {
+
+    width: 6px;
+    height: 6px;
+}
+
+.admin-rdv-sidebar::-webkit-scrollbar-track,
+.admin-rdv-table-wrapper::-webkit-scrollbar-track,
+.admin-rdv-modal::-webkit-scrollbar-track {
+
+    background: transparent;
+}
+
+.admin-rdv-sidebar::-webkit-scrollbar-thumb,
+.admin-rdv-table-wrapper::-webkit-scrollbar-thumb,
+.admin-rdv-modal::-webkit-scrollbar-thumb {
+
+    background: #cbd5e1;
+
+    border-radius: 20px;
+}
+
+
+/* ==========================================================
+   ACCESSIBILITÉ
+   ========================================================== */
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+a:focus-visible {
+
+    outline:
+        3px solid rgba(37, 99, 235, 0.20);
+
+    outline-offset: 2px;
+}
+
+
+/* ==========================================================
+   FIN
+   ========================================================== */

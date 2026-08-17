@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Inscription | CityCare</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/register.css"
+    >
+</head>
+
+<body>
+
+    <main class="register-page">
+
+        <div class="register-container">
+
+            <!-- =========================================
+                 PARTIE GAUCHE
+            ========================================== -->
+
+            <section class="register-hero">
+
+                <div class="hero-glow hero-glow-1"></div>
+
+                <div class="hero-glow hero-glow-2"></div>
+
+                <!-- Logo -->
+
+                <div class="brand">
+
+                    <div class="brand-logo">
+                        <span>⌂</span>
+                    </div>
+
+                    <div>
+
+                        <div class="brand-name">
+                            City<span>Care</span>
+                        </div>
+
+                        <div class="brand-subtitle">
+                            Services urbains connectés
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Contenu -->
+
+                <div class="hero-content">
+
+                    <span class="hero-badge">
+                        REJOIGNEZ CITYCARE
+                    </span>
+
+                    <h1>
+                        Votre ville.
+                        <br>
+                        <span>Votre espace.</span>
+                    </h1>
+
+                    <p>
+                        Créez votre compte et accédez facilement
+                        aux services essentiels de votre ville.
+                    </p>
+
+
+                    <!-- Services -->
+
+                    <div class="feature-list">
+
+                        <div class="feature">
+
+                            <div class="feature-icon">
+                                📢
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Signaler un problème
+                                </strong>
+
+                                <span>
+                                    Eau, déchets, circulation...
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="feature">
+
+                            <div class="feature-icon">
+                                📅
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Prendre rendez-vous
+                                </strong>
+
+                                <span>
+                                    Consultez les services disponibles.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="feature">
+
+                            <div class="feature-icon">
+                                🚌
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Consulter les transports
+                                </strong>
+
+                                <span>
+                                    Retrouvez les lignes et les arrêts.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Illustration -->
+
+                <div class="city-illustration">
+
+                    <img
+                        src="/images/register.png"
+                        alt="Ville connectée CityCare"
+                    >
+
+                </div>
+
+
+                <div class="hero-footer">
+
+                    Une ville plus connectée,
+                    des services plus simples.
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================================
+                 PARTIE DROITE
+            ========================================== -->
+
+            <section class="register-form-section">
+
+                <div class="form-wrapper">
+
+                    <!-- En-tête -->
+
+                    <div class="form-header">
+
+                        <span class="form-number">
+                            01
+                        </span>
+
+                        <div>
+
+                            <h2>
+                                Créer un compte
+                            </h2>
+
+                            <p>
+                                Rejoignez CityCare en quelques secondes.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================
+                         FORMULAIRE
+                    ================================== -->
+
+                    <form
+                        id="formRegister"
+                        method="POST"
+                    >
+
+                        <div class="form-grid">
+
+                            <!-- Nom -->
+
+                            <div class="form-group">
+
+                                <label for="nom">
+                                    Nom
+                                </label>
+
+                                <div class="input-wrapper">
+
+                                    <span class="input-icon">
+                                        👤
+                                    </span>
+
+                                    <input
+                                        type="text"
+                                        id="nom"
+                                        name="nom"
+                                        placeholder="Votre nom"
+                                        autocomplete="family-name"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Prénom -->
+
+                            <div class="form-group">
+
+                                <label for="prenom">
+                                    Prénom
+                                </label>
+
+                                <div class="input-wrapper">
+
+                                    <span class="input-icon">
+                                        👤
+                                    </span>
+
+                                    <input
+                                        type="text"
+                                        id="prenom"
+                                        name="prenom"
+                                        placeholder="Votre prénom"
+                                        autocomplete="given-name"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Username -->
+
+                            <div class="form-group full">
+
+                                <label for="username">
+                                    Nom d'utilisateur
+                                </label>
+
+                                <div class="input-wrapper">
+
+                                    <span class="input-icon">
+                                        @
+                                    </span>
+
+                                    <input
+                                        type="text"
+                                        id="username"
+                                        name="username"
+                                        placeholder="Choisissez un nom d'utilisateur"
+                                        autocomplete="username"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Email -->
+
+                            <div class="form-group full">
+
+                                <label for="email">
+                                    Adresse e-mail
+                                </label>
+
+                                <div class="input-wrapper">
+
+                                    <span class="input-icon">
+                                        ✉
+                                    </span>
+
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        placeholder="exemple@email.com"
+                                        autocomplete="email"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Mot de passe -->
+
+                            <div class="form-group">
+
+                                <label for="mot_de_passe">
+                                    Mot de passe
+                                </label>
+
+                                <div class="input-wrapper">
+
+                                    <span class="input-icon">
+                                        🔒
+                                    </span>
+
+                                    <input
+                                        type="password"
+                                        id="mot_de_passe"
+                                        name="mot_de_passe"
+                                        placeholder="Créer un mot de passe"
+                                        autocomplete="new-password"
+                                        required
+                                    >
+
+                                    <button
+                                        type="button"
+                                        class="password-toggle"
+                                        id="togglePassword"
+                                        aria-label="Afficher ou masquer le mot de passe"
+                                    >
+                                        ◉
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Confirmation -->
+
+                            <div class="form-group">
+
+                                <label for="confirmation">
+                                    Confirmation
+                                </label>
+
+                                <div class="input-wrapper">
+
+                                    <span class="input-icon">
+                                        🔐
+                                    </span>
+
+                                    <input
+                                        type="password"
+                                        id="confirmation"
+                                        name="confirmation"
+                                        placeholder="Confirmez le mot de passe"
+                                        autocomplete="new-password"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Conditions -->
+
+                        <label class="terms">
+
+                            <input
+                                type="checkbox"
+                                id="conditions"
+                                name="conditions"
+                                required
+                            >
+
+                            <span>
+
+                                J'accepte les
+
+                                <a href="#">
+                                    conditions d'utilisation
+                                </a>
+
+                                de CityCare.
+
+                            </span>
+
+                        </label>
+
+
+                        <!-- Message -->
+
+                        <div
+                            id="message"
+                            class="message"
+                            role="alert"
+                            aria-live="polite"
+                        ></div>
+
+
+                        <!-- Bouton -->
+
+                        <button
+                            type="submit"
+                            id="btnRegister"
+                            class="register-button"
+                        >
+
+                            <span>
+                                Créer mon compte
+                            </span>
+
+                            <strong>
+                                →
+                            </strong>
+
+                        </button>
+
+                    </form>
+
+
+                    <!-- Connexion -->
+
+                    <div class="login-link">
+
+                        <span>
+                            Vous avez déjà un compte ?
+                        </span>
+
+                        <a href="/login">
+                            Se connecter →
+                        </a>
+
+                    </div>
+
+
+                    <!-- Admin -->
+
+                    <div class="admin-link">
+
+                        <div class="admin-icon">
+                            🛡️
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Vous êtes administrateur ?
+                            </span>
+
+                            <a href="/register-admin">
+                                Créer un compte administrateur
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Accueil -->
+
+                    <a
+                        href="/"
+                        class="back-home"
+                    >
+                        ← Retour à l'accueil
+                    </a>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="/js/register.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<meta name="description"
+      content="Gestion des rendez-vous - Administration CityCare">
+
+<title>CityCare — Rendez-vous</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+<link rel="stylesheet" href="/css/gestion_rendezvous.css">
+```
+
+</head>
+
+<body>
+
+<div class="admin-rdv-app">
+
+```
+<!-- =====================================================
+     SIDEBAR
+====================================================== -->
+
+<aside class="admin-rdv-sidebar" id="adminRdvSidebar">
+
+    <div class="admin-rdv-brand">
+        <div class="admin-rdv-brand-logo">C</div>
+
+        <div class="admin-rdv-brand-text">
+            <strong>CityCare</strong>
+            <span>ADMINISTRATION</span>
+        </div>
+    </div>
+
+    <div class="admin-rdv-profile">
+
+        <div class="admin-rdv-avatar" id="adminAvatar">
+            AD
+        </div>
+
+        <div class="admin-rdv-profile-info">
+            <strong id="adminName">Administrateur</strong>
+            <span id="adminUsername">@admin</span>
+        </div>
+
+        <span class="admin-rdv-online"></span>
+
+    </div>
+
+    <nav class="admin-rdv-navigation">
+
+        <span class="admin-rdv-nav-title">MENU PRINCIPAL</span>
+
+        <a href="/admin#overview" class="admin-rdv-nav-link">
+            <span class="admin-rdv-nav-icon">⌂</span>
+            <span>Tableau de bord</span>
+        </a>
+
+        <a href="/admin#signalements" class="admin-rdv-nav-link">
+            <span class="admin-rdv-nav-icon">!</span>
+            <span>Signalements</span>
+        </a>
+
+        <a href="/admin/gestion_rendezvous"
+           class="admin-rdv-nav-link active">
+
+            <span class="admin-rdv-nav-icon">◷</span>
+            <span>Rendez-vous</span>
+
+            <span class="admin-rdv-nav-badge"
+                  id="pendingBadge">
+                0
+            </span>
+        </a>
+
+        <span class="admin-rdv-nav-title">GESTION</span>
+
+        <a href="/admin#utilisateurs" class="admin-rdv-nav-link">
+            <span class="admin-rdv-nav-icon">◉</span>
+            <span>Utilisateurs</span>
+        </a>
+
+        <a href="/admin#transport" class="admin-rdv-nav-link">
+            <span class="admin-rdv-nav-icon">▣</span>
+            <span>Transport</span>
+        </a>
+
+        <a href="/admin#statistiques" class="admin-rdv-nav-link">
+            <span class="admin-rdv-nav-icon">↗</span>
+            <span>Statistiques</span>
+        </a>
+
+        <span class="admin-rdv-nav-title">SYSTÈME</span>
+
+        <a href="/admin#securite" class="admin-rdv-nav-link">
+            <span class="admin-rdv-nav-icon">✓</span>
+            <span>Sécurité</span>
+        </a>
+
+        <a href="/admin#parametres" class="admin-rdv-nav-link">
+            <span class="admin-rdv-nav-icon">⚙</span>
+            <span>Paramètres</span>
+        </a>
+
+    </nav>
+
+    <div class="admin-rdv-sidebar-footer">
+
+        <div class="admin-rdv-security">
+            <div class="admin-rdv-security-icon">✓</div>
+
+            <div>
+                <strong>Système sécurisé</strong>
+                <span>Session administrateur</span>
+            </div>
+        </div>
+
+        <button
+            type="button"
+            class="admin-rdv-logout"
+            id="logoutButton"
+        >
+            <span>↪</span>
+            <span>Déconnexion</span>
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- =====================================================
+     CONTENU PRINCIPAL
+====================================================== -->
+
+<main class="admin-rdv-main">
+
+    <!-- TOPBAR -->
+
+    <header class="admin-rdv-topbar">
+
+        <div class="admin-rdv-topbar-left">
+
+            <button
+                type="button"
+                class="admin-rdv-menu-button"
+                id="menuToggle"
+                aria-label="Menu"
+            >
+                ☰
+            </button>
+
+            <div class="admin-rdv-heading">
+                <span>ESPACE ADMINISTRATEUR</span>
+                <h1>Rendez-vous</h1>
+            </div>
+
+        </div>
+
+        <div class="admin-rdv-topbar-right">
+
+            <div class="admin-rdv-clock">
+                <span>●</span>
+                <strong id="adminClock">00:00:00</strong>
+            </div>
+
+            <div class="admin-rdv-header-user">
+
+                <div
+                    class="admin-rdv-header-avatar"
+                    id="headerAdminAvatar"
+                >
+                    AD
+                </div>
+
+                <div>
+                    <strong id="headerAdminName">
+                        Administrateur
+                    </strong>
+
+                    <span>Compte administrateur</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- CONTENU -->
+
+    <div class="admin-rdv-content">
+
+        <!-- HERO -->
+
+        <section class="admin-rdv-page-header">
+
+            <div>
+
+                <span class="admin-rdv-overline">
+                    GESTION DES SERVICES
+                </span>
+
+                <h2>
+                    Gestion des rendez-vous
+                </h2>
+
+                <p>
+                    Suivez, contrôlez et mettez à jour les
+                    rendez-vous envoyés par les citoyens.
+                </p>
+
+            </div>
+
+            <button
+                type="button"
+                class="admin-rdv-refresh-button"
+                id="refreshButton"
+            >
+                <span>↻</span>
+                Actualiser
+            </button>
+
+        </section>
+
+
+        <!-- =================================================
+             STATISTIQUES
+        ================================================== -->
+
+        <section class="admin-rdv-stats">
+
+            <article class="admin-rdv-stat-card">
+
+                <div class="admin-rdv-stat-icon blue">
+                    ◷
+                </div>
+
+                <div>
+                    <span>TOTAL</span>
+
+                    <strong id="totalRdv">
+                        0
+                    </strong>
+
+                    <small>
+                        Tous les rendez-vous
+                    </small>
+                </div>
+
+            </article>
+
+
+            <article class="admin-rdv-stat-card">
+
+                <div class="admin-rdv-stat-icon orange">
+                    !
+                </div>
+
+                <div>
+                    <span>EN ATTENTE</span>
+
+                    <strong id="pendingRdv">
+                        0
+                    </strong>
+
+                    <small>
+                        À traiter
+                    </small>
+                </div>
+
+            </article>
+
+
+            <article class="admin-rdv-stat-card">
+
+                <div class="admin-rdv-stat-icon green">
+                    ◷
+                </div>
+
+                <div>
+                    <span>EN COURS</span>
+
+                    <strong id="confirmedRdv">
+                        0
+                    </strong>
+
+                    <small>
+                        Traitement en cours
+                    </small>
+                </div>
+
+            </article>
+
+
+            <article class="admin-rdv-stat-card">
+
+                <div class="admin-rdv-stat-icon red">
+                    ×
+                </div>
+
+                <div>
+                    <span>REFUSÉS</span>
+
+                    <strong id="refusedRdv">
+                        0
+                    </strong>
+
+                    <small>
+                        Rendez-vous refusés
+                    </small>
+                </div>
+
+            </article>
+
+
+            <article class="admin-rdv-stat-card">
+
+                <div class="admin-rdv-stat-icon purple">
+                    ✓
+                </div>
+
+                <div>
+                    <span>TERMINÉS</span>
+
+                    <strong id="completedRdv">
+                        0
+                    </strong>
+
+                    <small>
+                        Rendez-vous terminés
+                    </small>
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- =================================================
+             TABLEAU
+        ================================================== -->
+
+        <section class="admin-rdv-management">
+
+            <div class="admin-rdv-toolbar">
+
+                <div class="admin-rdv-toolbar-title">
+
+                    <span>RENDEZ-VOUS CITOYENS</span>
+
+                    <h3>
+                        Liste des rendez-vous
+                    </h3>
+
+                </div>
+
+                <div class="admin-rdv-toolbar-actions">
+
+                    <div class="admin-rdv-search">
+
+                        <span>⌕</span>
+
+                        <input
+                            type="search"
+                            id="rdvSearch"
+                            placeholder="Rechercher un citoyen..."
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+
+                    <select
+                        id="statusFilter"
+                        class="admin-rdv-filter"
+                    >
+
+                        <option value="">
+                            Tous les statuts
+                        </option>
+
+                        <option value="En attente">
+                            En attente
+                        </option>
+
+                        <option value="En cours">
+                            En cours
+                        </option>
+
+                        <option value="Terminé">
+                            Terminé
+                        </option>
+
+                        <option value="Refusé">
+                            Refusé
+                        </option>
+
+                    </select>
+
+
+                    <input
+                        type="date"
+                        id="dateFilter"
+                        class="admin-rdv-filter"
+                    >
+
+
+                    <select
+                        id="centreFilter"
+                        class="admin-rdv-filter"
+                    >
+
+                        <option value="">
+                            Tous les centres
+                        </option>
+
+                    </select>
+
+
+                    <button
+                        type="button"
+                        id="resetFilters"
+                        class="admin-rdv-reset"
+                        title="Réinitialiser"
+                    >
+                        ↻
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- TABLE -->
+
+            <div class="admin-rdv-table-wrapper">
+
+                <table class="admin-rdv-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>CITOYEN</th>
+
+                            <th>CENTRE</th>
+
+                            <th>SERVICE</th>
+
+                            <th>DATE</th>
+
+                            <th>HEURE</th>
+
+                            <th>STATUT</th>
+
+                            <th>ACTIONS</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="rdvTableBody">
+
+                        <tr>
+
+                            <td
+                                colspan="8"
+                                class="admin-rdv-loading"
+                            >
+
+                                <div>◷</div>
+
+                                <strong>
+                                    Chargement...
+                                </strong>
+
+                                <span>
+                                    Récupération des rendez-vous
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- PAGINATION -->
+
+            <div class="admin-rdv-pagination">
+
+                <span id="paginationInfo">
+                    0 rendez-vous
+                </span>
+
+                <div class="admin-rdv-pagination-controls">
+
+                    <button
+                        type="button"
+                        id="previousPage"
+                        disabled
+                    >
+                        ←
+                    </button>
+
+                    <span id="currentPage">
+                        1
+                    </span>
+
+                    <button
+                        type="button"
+                        id="nextPage"
+                        disabled
+                    >
+                        →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- EMPTY -->
+
+        <section
+            class="admin-rdv-empty"
+            id="emptyState"
+            hidden
+        >
+
+            <div class="admin-rdv-empty-icon">
+                ◷
+            </div>
+
+            <h3>
+                Aucun rendez-vous trouvé
+            </h3>
+
+            <p>
+                Aucun rendez-vous ne correspond aux
+                critères sélectionnés.
+            </p>
+
+            <button
+                type="button"
+                id="emptyResetButton"
+            >
+                Réinitialiser les filtres
+            </button>
+
+        </section>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <footer class="admin-rdv-footer">
+
+        <span>
+            © 2026 CityCare
+        </span>
+
+        <span>
+            Administration · Rendez-vous
+        </span>
+
+    </footer>
+
+</main>
+```
+
+</div>
+
+<!-- =========================================================
+     MODALE DÉTAILS
+========================================================= -->
+
+<div
+    class="admin-rdv-modal-overlay"
+    id="rdvDetailsModal"
+    hidden
+>
+
+```
+<div
+    class="admin-rdv-modal"
+    role="dialog"
+    aria-modal="true"
+>
+
+    <div class="admin-rdv-modal-header">
+
+        <div>
+            <span>RENDEZ-VOUS</span>
+
+            <h3>
+                Détails du rendez-vous
+            </h3>
+        </div>
+
+        <button
+            type="button"
+            id="closeDetailsModal"
+            class="admin-rdv-modal-close"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="admin-rdv-modal-body">
+
+        <div class="admin-rdv-details-grid">
+
+            <div class="admin-rdv-detail">
+                <span>ID</span>
+                <strong id="detailId">—</strong>
+            </div>
+
+            <div class="admin-rdv-detail">
+                <span>Citoyen</span>
+                <strong id="detailUser">—</strong>
+            </div>
+
+            <div class="admin-rdv-detail">
+                <span>Centre</span>
+                <strong id="detailCentre">—</strong>
+            </div>
+
+            <div class="admin-rdv-detail">
+                <span>Service</span>
+                <strong id="detailService">—</strong>
+            </div>
+
+            <div class="admin-rdv-detail">
+                <span>Date</span>
+                <strong id="detailDate">—</strong>
+            </div>
+
+            <div class="admin-rdv-detail">
+                <span>Heure</span>
+                <strong id="detailTime">—</strong>
+            </div>
+
+            <div class="admin-rdv-detail full">
+                <span>Statut actuel</span>
+                <strong id="detailCurrentStatus">—</strong>
+            </div>
+
+        </div>
+
+
+        <div class="admin-rdv-status-editor">
+
+            <label for="detailStatus">
+                Modifier le statut
+            </label>
+
+            <select id="detailStatus">
+
+                <option value="En attente">
+                    En attente
+                </option>
+
+                <option value="En cours">
+                    En cours
+                </option>
+
+                <option value="Terminé">
+                    Terminé
+                </option>
+
+                <option value="Refusé">
+                    Refusé
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <div class="admin-rdv-modal-footer">
+
+        <button
+            type="button"
+            id="cancelDetailsButton"
+            class="admin-rdv-secondary-button"
+        >
+            Annuler
+        </button>
+
+        <button
+            type="button"
+            id="saveStatusButton"
+            class="admin-rdv-primary-button"
+        >
+            Enregistrer
+        </button>
+
+    </div>
+
+</div>
+```
+
+</div>
+
+<!-- =========================================================
+     MODALE SUPPRESSION
+========================================================= -->
+
+<div
+    class="admin-rdv-modal-overlay"
+    id="deleteRdvModal"
+    hidden
+>
+
+```
+<div
+    class="admin-rdv-modal admin-rdv-delete-modal"
+    role="dialog"
+    aria-modal="true"
+>
+
+    <div class="admin-rdv-modal-header">
+
+        <div>
+
+            <span>ATTENTION</span>
+
+            <h3>
+                Supprimer le rendez-vous
+            </h3>
+
+        </div>
+
+        <button
+            type="button"
+            id="closeDeleteModal"
+            class="admin-rdv-modal-close"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="admin-rdv-modal-body">
+
+        <div class="admin-rdv-delete-icon">
+            !
+        </div>
+
+        <p>
+            Vous êtes sur le point de supprimer
+            définitivement ce rendez-vous.
+        </p>
+
+        <strong id="deleteRdvReference">
+            Rendez-vous #—
+        </strong>
+
+        <span class="admin-rdv-delete-warning">
+            Cette action est irréversible.
+        </span>
+
+    </div>
+
+
+    <div class="admin-rdv-modal-footer">
+
+        <button
+            type="button"
+            id="cancelDeleteButton"
+            class="admin-rdv-secondary-button"
+        >
+            Annuler
+        </button>
+
+        <button
+            type="button"
+            id="confirmDeleteButton"
+            class="admin-rdv-danger-button"
+        >
+            Supprimer
+        </button>
+
+    </div>
+
+</div>
+```
+
+</div>
+
+<script src="/js/gestion_rendezvous.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Interface d'administration CityCare"
+    >
+
+    <title>CityCare — Administration</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/css/admin.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="admin-app">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                CC
+            </div>
+
+            <div class="brand-text">
+
+                <strong>
+                    CityCare
+                </strong>
+
+                <span>
+                    ADMIN PANEL
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROFIL ADMIN -->
+
+        <div class="admin-card">
+
+            <div
+                class="admin-avatar"
+                id="adminAvatar"
+            >
+                AD
+            </div>
+
+            <div class="admin-details">
+
+                <strong id="adminName">
+                    Administrateur
+                </strong>
+
+                <span id="adminUsername">
+                    @admin
+                </span>
+
+            </div>
+
+            <span class="online-dot"></span>
+
+        </div>
+
+
+        <!-- =================================================
+             NAVIGATION
+        ================================================== -->
+
+        <nav class="sidebar-nav">
+
+
+            <!-- PRINCIPAL -->
+
+            <div class="nav-group">
+
+                <span class="nav-label">
+                    PRINCIPAL
+                </span>
+
+
+                <a
+                    href="#overview"
+                    class="nav-link active"
+                    data-section="overview"
+                >
+
+                    <span class="nav-symbol">
+                        ⌂
+                    </span>
+
+                    <span>
+                        Tableau de bord
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="#signalements"
+                    class="nav-link"
+                    data-section="signalements"
+                >
+
+                    <span class="nav-symbol">
+                        !
+                    </span>
+
+                    <span>
+                        Signalements
+                    </span>
+
+                    <b
+                        class="nav-badge"
+                        id="totalSignalements"
+                    >
+                        0
+                    </b>
+
+                </a>
+
+
+                <a
+                    href="#rendezvous"
+                    class="nav-link"
+                    data-section="rendezvous"
+                >
+
+                    <span class="nav-symbol">
+                        ◷
+                    </span>
+
+                    <span>
+                        Rendez-vous
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <!-- GESTION -->
+
+            <div class="nav-group">
+
+                <span class="nav-label">
+                    GESTION
+                </span>
+
+
+                <!-- IMPORTANT :
+                     ON UTILISE #utilisateurs
+                     ET NON /admin/utilisateurs -->
+
+                <a
+                    href="#utilisateurs"
+                    class="nav-link"
+                    data-section="utilisateurs"
+                >
+
+                    <span class="nav-symbol">
+                        ◉
+                    </span>
+
+                    <span>
+                        Utilisateurs
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="#transport"
+                    class="nav-link"
+                    data-section="transport"
+                >
+
+                    <span class="nav-symbol">
+                        ▣
+                    </span>
+
+                    <span>
+                        Transports
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="#statistiques"
+                    class="nav-link"
+                    data-section="statistiques"
+                >
+
+                    <span class="nav-symbol">
+                        ↗
+                    </span>
+
+                    <span>
+                        Statistiques
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <!-- SYSTÈME -->
+
+            <div class="nav-group">
+
+                <span class="nav-label">
+                    SYSTÈME
+                </span>
+
+
+                <a
+                    href="#parametres"
+                    class="nav-link"
+                    data-section="parametres"
+                >
+
+                    <span class="nav-symbol">
+                        ⚙
+                    </span>
+
+                    <span>
+                        Paramètres
+                    </span>
+
+                </a>
+
+            </div>
+
+        </nav>
+
+
+        <!-- SIDEBAR FOOTER -->
+
+        <div class="sidebar-footer">
+
+            <div class="security-box">
+
+                <div class="security-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <strong>
+                        Système sécurisé
+                    </strong>
+
+                    <span>
+                        Session active
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="logout-button"
+                id="logout"
+            >
+
+                <span>
+                    ↪
+                </span>
+
+                <span>
+                    Déconnexion
+                </span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    type="button"
+                    class="mobile-menu"
+                    id="menuToggle"
+                >
+                    ☰
+                </button>
+
+
+                <div class="page-heading">
+
+                    <span class="breadcrumb">
+                        CityCare / Administration
+                    </span>
+
+                    <h1 id="pageTitle">
+                        Tableau de bord
+                    </h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <div class="search-box">
+
+                    <span class="search-icon">
+                        ⌕
+                    </span>
+
+                    <input
+                        type="search"
+                        id="globalSearch"
+                        placeholder="Rechercher..."
+                        autocomplete="off"
+                    >
+
+                    <kbd>
+                        Ctrl K
+                    </kbd>
+
+                </div>
+
+
+                <div class="clock-box">
+
+                    <span class="clock-dot"></span>
+
+                    <strong id="adminClock">
+                        00:00:00
+                    </strong>
+
+                </div>
+
+
+                <div class="header-user">
+
+                    <div
+                        class="header-avatar"
+                        id="headerAdminAvatar"
+                    >
+                        AD
+                    </div>
+
+                    <div class="header-user-info">
+
+                        <strong id="headerAdminName">
+                            Administrateur
+                        </strong>
+
+                        <span>
+                            Administrateur
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             CONTENT
+        ================================================== -->
+
+        <div class="content">
+
+
+            <!-- =================================================
+                 DASHBOARD
+            ================================================== -->
+
+            <section
+                id="overview"
+                class="admin-section active"
+            >
+
+                <div class="hero">
+
+                    <div class="hero-content">
+
+                        <span class="hero-tag">
+                            ESPACE ADMINISTRATEUR
+                        </span>
+
+                        <h2>
+                            Bonjour,
+                            <span id="welcomeAdminName">
+                                Administrateur
+                            </span>
+                        </h2>
+
+                        <p>
+                            Gérez les services urbains,
+                            les citoyens et les activités
+                            de CityCare depuis cet espace.
+                        </p>
+
+                    </div>
+
+
+                    <div class="hero-decoration">
+
+                        <div class="hero-circle">
+                            CC
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="section-title">
+
+                    <div>
+
+                        <span>
+                            APERÇU
+                        </span>
+
+                        <h2>
+                            Vue générale
+                        </h2>
+
+                    </div>
+
+                    <div class="live-status">
+
+                        <i></i>
+
+                        Données en direct
+
+                    </div>
+
+                </div>
+
+
+                <div class="stats-grid">
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-top">
+
+                            <div class="stat-icon blue">
+                                ◉
+                            </div>
+
+                            <span>
+                                CITOYENS
+                            </span>
+
+                        </div>
+
+                        <strong id="totalUsers">
+                            0
+                        </strong>
+
+                        <p>
+                            Comptes citoyens
+                        </p>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-top">
+
+                            <div class="stat-icon orange">
+                                !
+                            </div>
+
+                            <span>
+                                SIGNALEMENTS
+                            </span>
+
+                        </div>
+
+                        <strong id="totalSignalementsCard">
+                            0
+                        </strong>
+
+                        <p>
+                            Signalements enregistrés
+                        </p>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-top">
+
+                            <div class="stat-icon purple">
+                                ◷
+                            </div>
+
+                            <span>
+                                RENDEZ-VOUS
+                            </span>
+
+                        </div>
+
+                        <strong id="totalRendezvous">
+                            0
+                        </strong>
+
+                        <p>
+                            Rendez-vous enregistrés
+                        </p>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-top">
+
+                            <div class="stat-icon green">
+                                ▣
+                            </div>
+
+                            <span>
+                                TRANSPORTS
+                            </span>
+
+                        </div>
+
+                        <strong id="totalTransports">
+                            0
+                        </strong>
+
+                        <p>
+                            Lignes disponibles
+                        </p>
+
+                    </article>
+
+                </div>
+
+
+                <div class="dashboard-columns">
+
+
+                    <article class="panel">
+
+                        <div class="panel-heading">
+
+                            <div>
+
+                                <span>
+                                    ACTIVITÉ
+                                </span>
+
+                                <h3>
+                                    Activité récente
+                                </h3>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="text-button"
+                                data-section="signalements"
+                            >
+                                Voir tout →
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            class="activity-list"
+                            id="recentActivities"
+                        >
+
+                            <div class="loading-state">
+                                Chargement des activités...
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="panel">
+
+                        <div class="panel-heading">
+
+                            <div>
+
+                                <span>
+                                    SERVICES
+                                </span>
+
+                                <h3>
+                                    État des services
+                                </h3>
+
+                            </div>
+
+                            <span class="live-badge">
+                                En direct
+                            </span>
+
+                        </div>
+
+
+                        <div class="service-list">
+
+
+                            <div class="service-row">
+
+                                <div class="service-info">
+
+                                    <div class="service-icon water">
+                                        💧
+                                    </div>
+
+                                    <div>
+
+                                        <strong>
+                                            Eau
+                                        </strong>
+
+                                        <span>
+                                            Service urbain
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                                <span class="service-status">
+                                    Opérationnel
+                                </span>
+
+                            </div>
+
+
+                            <div class="service-row">
+
+                                <div class="service-info">
+
+                                    <div class="service-icon electricity">
+                                        ⚡
+                                    </div>
+
+                                    <div>
+
+                                        <strong>
+                                            Électricité
+                                        </strong>
+
+                                        <span>
+                                            Service urbain
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                                <span class="service-status">
+                                    Opérationnel
+                                </span>
+
+                            </div>
+
+
+                            <div class="service-row">
+
+                                <div class="service-info">
+
+                                    <div class="service-icon road">
+                                        ◈
+                                    </div>
+
+                                    <div>
+
+                                        <strong>
+                                            Voirie
+                                        </strong>
+
+                                        <span>
+                                            Infrastructure
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                                <span class="service-status">
+                                    Opérationnel
+                                </span>
+
+                            </div>
+
+
+                            <div class="service-row">
+
+                                <div class="service-info">
+
+                                    <div class="service-icon transport">
+                                        🚌
+                                    </div>
+
+                                    <div>
+
+                                        <strong>
+                                            Transport
+                                        </strong>
+
+                                        <span>
+                                            Mobilité urbaine
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                                <span class="service-status">
+                                    Opérationnel
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <div class="section-title quick-title">
+
+                    <div>
+
+                        <span>
+                            PRODUCTIVITÉ
+                        </span>
+
+                        <h2>
+                            Actions rapides
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="quick-grid">
+
+
+                    <button
+                        type="button"
+                        class="quick-card"
+                        data-section="signalements"
+                    >
+
+                        <span class="quick-icon orange">
+                            !
+                        </span>
+
+                        <span class="quick-text">
+
+                            <strong>
+                                Signalements
+                            </strong>
+
+                            <small>
+                                Consulter et traiter
+                            </small>
+
+                        </span>
+
+                        <b>
+                            →
+                        </b>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="quick-card"
+                        data-section="rendezvous"
+                    >
+
+                        <span class="quick-icon purple">
+                            ◷
+                        </span>
+
+                        <span class="quick-text">
+
+                            <strong>
+                                Rendez-vous
+                            </strong>
+
+                            <small>
+                                Consulter le planning
+                            </small>
+
+                        </span>
+
+                        <b>
+                            →
+                        </b>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="quick-card"
+                        data-section="utilisateurs"
+                    >
+
+                        <span class="quick-icon blue">
+                            ◉
+                        </span>
+
+                        <span class="quick-text">
+
+                            <strong>
+                                Utilisateurs
+                            </strong>
+
+                            <small>
+                                Gérer les comptes
+                            </small>
+
+                        </span>
+
+                        <b>
+                            →
+                        </b>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="quick-card"
+                        data-section="statistiques"
+                    >
+
+                        <span class="quick-icon green">
+                            ↗
+                        </span>
+
+                        <span class="quick-text">
+
+                            <strong>
+                                Statistiques
+                            </strong>
+
+                            <small>
+                                Analyser les données
+                            </small>
+
+                        </span>
+
+                        <b>
+                            →
+                        </b>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SIGNALEMENTS
+            ================================================== -->
+
+            <section
+                id="signalements"
+                class="admin-section"
+            >
+
+                <div class="page-header">
+
+                    <div>
+
+                        <span>
+                            GESTION
+                        </span>
+
+                        <h2>
+                            Signalements
+                        </h2>
+
+                        <p>
+                            Consultez, filtrez et gérez les
+                            signalements envoyés par les citoyens.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="management-panel">
+
+                    <div class="filter-bar">
+
+                        <div class="filter-search">
+
+                            <span>
+                                ⌕
+                            </span>
+
+                            <input
+                                type="search"
+                                id="signalementSearch"
+                                placeholder="Rechercher un signalement..."
+                                autocomplete="off"
+                            >
+
+                        </div>
+
+
+                        <select id="serviceFilter">
+
+                            <option value="">
+                                Tous les services
+                            </option>
+
+                            <option value="eau">
+                                Eau
+                            </option>
+
+                            <option value="electricite">
+                                Électricité
+                            </option>
+
+                            <option value="voirie">
+                                Voirie
+                            </option>
+
+                            <option value="transport">
+                                Transport
+                            </option>
+
+                        </select>
+
+
+                        <select id="statusFilter">
+
+                            <option value="">
+                                Tous les statuts
+                            </option>
+
+                            <option value="en_attente">
+                                En attente
+                            </option>
+
+                            <option value="en_cours">
+                                En cours
+                            </option>
+
+                            <option value="resolu">
+                                Résolu
+                            </option>
+
+                            <option value="rejete">
+                                Rejeté
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table class="data-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>ID</th>
+                                    <th>SERVICE</th>
+                                    <th>CITOYEN</th>
+                                    <th>LOCALISATION</th>
+                                    <th>DATE</th>
+                                    <th>STATUT</th>
+                                    <th>ACTION</th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="signalementsTableBody">
+
+                                <tr>
+
+                                    <td colspan="7">
+
+                                        <div class="table-empty">
+
+                                            <div>
+                                                !
+                                            </div>
+
+                                            <strong>
+                                                Chargement des signalements...
+                                            </strong>
+
+                                            <span>
+                                                Les signalements sont en cours de chargement.
+                                            </span>
+
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 RENDEZ-VOUS
+            ================================================== -->
+
+            <section
+                id="rendezvous"
+                class="admin-section"
+            >
+
+                <div class="page-header">
+
+                    <div>
+
+                        <span>
+                            GESTION
+                        </span>
+
+                        <h2>
+                            Rendez-vous
+                        </h2>
+
+                        <p>
+                            Gérez les rendez-vous des citoyens.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="management-panel">
+
+                    <div class="empty-module">
+
+                        <div class="module-icon purple">
+                            ◷
+                        </div>
+
+                        <h3>
+                            Gestion des rendez-vous
+                        </h3>
+
+                        <p>
+                            Le planning des rendez-vous
+                            sera affiché ici.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 UTILISATEURS
+            ================================================== -->
+
+            <section
+                id="utilisateurs"
+                class="admin-section"
+            >
+
+                <div class="page-header">
+
+                    <div>
+
+                        <span>
+                            GESTION
+                        </span>
+
+                        <h2>
+                            Utilisateurs
+                        </h2>
+
+                        <p>
+                            Gérez les comptes des citoyens
+                            de la plateforme.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="management-panel">
+
+                    <div class="empty-module">
+
+                        <div class="module-icon blue">
+                            ◉
+                        </div>
+
+                        <h3>
+                            Gestion des utilisateurs
+                        </h3>
+
+                        <p>
+                            Les comptes utilisateurs
+                            seront affichés ici.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 TRANSPORT
+            ================================================== -->
+
+            <section
+                id="transport"
+                class="admin-section"
+            >
+
+                <div class="page-header">
+
+                    <div>
+
+                        <span>
+                            GESTION
+                        </span>
+
+                        <h2>
+                            Transports
+                        </h2>
+
+                        <p>
+                            Gérez les lignes et services
+                            de transport.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="management-panel">
+
+                    <div class="empty-module">
+
+                        <div class="module-icon green">
+                            ▣
+                        </div>
+
+                        <h3>
+                            Gestion des transports
+                        </h3>
+
+                        <p>
+                            Les lignes de transport
+                            seront affichées ici.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 STATISTIQUES
+            ================================================== -->
+
+            <section
+                id="statistiques"
+                class="admin-section"
+            >
+
+                <div class="page-header">
+
+                    <div>
+
+                        <span>
+                            ANALYSE
+                        </span>
+
+                        <h2>
+                            Statistiques
+                        </h2>
+
+                        <p>
+                            Analysez les données de la
+                            plateforme CityCare.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="analytics-grid">
+
+                    <div class="analytics-card">
+
+                        <span>
+                            SIGNALEMENTS
+                        </span>
+
+                        <strong id="donutTotal">
+                            0
+                        </strong>
+
+                        <small>
+                            Total enregistré
+                        </small>
+
+                    </div>
+
+
+                    <div class="analytics-card">
+
+                        <span>
+                            EN ATTENTE
+                        </span>
+
+                        <strong id="pendingLegend">
+                            0
+                        </strong>
+
+                        <small>
+                            À traiter
+                        </small>
+
+                    </div>
+
+
+                    <div class="analytics-card">
+
+                        <span>
+                            EN COURS
+                        </span>
+
+                        <strong id="progressLegend">
+                            0
+                        </strong>
+
+                        <small>
+                            Traitements actifs
+                        </small>
+
+                    </div>
+
+
+                    <div class="analytics-card">
+
+                        <span>
+                            RÉSOLUS
+                        </span>
+
+                        <strong id="resolvedLegend">
+                            0
+                        </strong>
+
+                        <small>
+                            Traitements terminés
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="management-panel">
+
+                    <div class="empty-module">
+
+                        <div class="module-icon green">
+                            ↗
+                        </div>
+
+                        <h3>
+                            Analyse détaillée
+                        </h3>
+
+                        <p>
+                            Les graphiques et analyses
+                            détaillées seront ajoutés ici.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PARAMÈTRES
+            ================================================== -->
+
+            <section
+                id="parametres"
+                class="admin-section"
+            >
+
+                <div class="page-header">
+
+                    <div>
+
+                        <span>
+                            SYSTÈME
+                        </span>
+
+                        <h2>
+                            Paramètres
+                        </h2>
+
+                        <p>
+                            Configuration de l'administration
+                            CityCare.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="settings-grid">
+
+                    <div class="setting-card">
+
+                        <div class="setting-icon">
+                            ⚙
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Configuration générale
+                            </strong>
+
+                            <p>
+                                Paramètres généraux de la plateforme.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="setting-card">
+
+                        <div class="setting-icon">
+                            🔐
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Sécurité
+                            </strong>
+
+                            <p>
+                                Gestion de la sécurité
+                                du compte administrateur.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="setting-card">
+
+                        <div class="setting-icon">
+                            🔔
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Notifications
+                            </strong>
+
+                            <p>
+                                Configuration des notifications.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="setting-card">
+
+                        <div class="setting-icon">
+                            ◉
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Profil administrateur
+                            </strong>
+
+                            <p>
+                                Informations du compte connecté.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+
+            <span>
+                © 2026 CityCare
+            </span>
+
+            <span>
+                Plateforme de services urbains
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- ==========================================================
+     JAVASCRIPT ADMINISTRATION
+========================================================== -->
+
+<script src="/js/admin.js"></script>
+
+<script src="/js/gestion_signalement.js"></script>
+
+
+</body>
+
+</html>

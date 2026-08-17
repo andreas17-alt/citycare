@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Signaler un problème | CityCare</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/signalement.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- ======================================================
+         HEADER
+    ======================================================= -->
+
+    <header class="topbar">
+
+        <div class="topbar-inner">
+
+            <a
+                href="/dashboard"
+                class="brand"
+            >
+
+                <span class="brand-icon">
+                    🏙️
+                </span>
+
+                <span class="brand-text">
+                    City<span>Care</span>
+                </span>
+
+            </a>
+
+
+            <a
+                href="/dashboard"
+                class="back-button"
+            >
+                ← Tableau de bord
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ======================================================
+         MAIN
+    ======================================================= -->
+
+    <main class="page">
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-badge">
+                <span>●</span>
+                Signalement citoyen
+            </div>
+
+            <h1>
+                Un problème dans votre quartier ?
+            </h1>
+
+            <p>
+                Signalez-le rapidement à CityCare.
+                Votre signalement aide à améliorer
+                les services de votre ville.
+            </p>
+
+        </section>
+
+
+        <!-- ==================================================
+             ÉTAPE 1
+        =================================================== -->
+
+        <section
+            id="categoriesSection"
+            class="card categories-section"
+        >
+
+            <div class="step-header">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <div>
+
+                    <span class="step-label">
+                        ÉTAPE 1
+                    </span>
+
+                    <h2>
+                        Choisissez un service
+                    </h2>
+
+                    <p>
+                        Quel type de problème souhaitez-vous signaler ?
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="categoriesGrid"
+                class="categories-grid"
+            >
+
+                <!-- EAU -->
+
+                <button
+                    type="button"
+                    class="category-card"
+                    data-categorie="1"
+                >
+
+                    <div class="category-icon water">
+                        💧
+                    </div>
+
+                    <div class="category-info">
+
+                        <strong>
+                            Gestion de l'eau
+                        </strong>
+
+                        <span>
+                            Coupure, fuite, eau sale,
+                            pression...
+                        </span>
+
+                    </div>
+
+                    <span class="category-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <!-- ELECTRICITE -->
+
+                <button
+                    type="button"
+                    class="category-card"
+                    data-categorie="5"
+                >
+
+                    <div class="category-icon electricity">
+                        ⚡
+                    </div>
+
+                    <div class="category-info">
+
+                        <strong>
+                            Électricité
+                        </strong>
+
+                        <span>
+                            Coupure, tension,
+                            éclairage...
+                        </span>
+
+                    </div>
+
+                    <span class="category-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <!-- DECHETS -->
+
+                <button
+                    type="button"
+                    class="category-card"
+                    data-categorie="3"
+                >
+
+                    <div class="category-icon garbage">
+                        🗑️
+                    </div>
+
+                    <div class="category-info">
+
+                        <strong>
+                            Collecte des déchets
+                        </strong>
+
+                        <span>
+                            Déchets non collectés,
+                            dépôt sauvage...
+                        </span>
+
+                    </div>
+
+                    <span class="category-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <!-- MARCHE -->
+
+                <button
+                    type="button"
+                    class="category-card"
+                    data-categorie="4"
+                >
+
+                    <div class="category-icon market">
+                        🛒
+                    </div>
+
+                    <div class="category-info">
+
+                        <strong>
+                            Marché local
+                        </strong>
+
+                        <span>
+                            Propreté, circulation,
+                            produits...
+                        </span>
+
+                    </div>
+
+                    <span class="category-arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             ÉTAPE 2
+        =================================================== -->
+
+        <section
+            id="formSection"
+            class="card form-section hidden"
+        >
+
+            <div class="step-header">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <div>
+
+                    <span class="step-label">
+                        ÉTAPE 2
+                    </span>
+
+                    <h2>
+                        Décrivez le problème
+                    </h2>
+
+                    <p>
+                        Donnez-nous les informations nécessaires.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CATEGORIE -->
+
+            <div class="selected-category">
+
+                <div
+                    id="selectedCategoryIcon"
+                    class="selected-category-icon"
+                >
+                    💧
+                </div>
+
+                <div class="selected-category-info">
+
+                    <span>
+                        Service sélectionné
+                    </span>
+
+                    <strong id="selectedCategoryName">
+                        Gestion de l'eau
+                    </strong>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="changeCategoryBtn"
+                    class="change-button"
+                >
+                    Modifier
+                </button>
+
+            </div>
+
+
+            <!-- FORM -->
+
+            <form
+                id="signalementForm"
+                enctype="multipart/form-data"
+                novalidate
+            >
+
+                <!-- ==========================================
+                     CATÉGORIE
+                =========================================== -->
+
+                <input
+                    type="hidden"
+                    id="idCategorie"
+                    name="id_categorie"
+                >
+
+
+                <div class="form-grid">
+
+
+                    <!-- TYPE -->
+
+                    <div class="form-group full">
+
+                        <label for="typeProbleme">
+
+                            Type de problème
+
+                            <span>*</span>
+
+                        </label>
+
+                        <select
+                            id="typeProbleme"
+                            name="id_type"
+                            required
+                        >
+
+                            <option value="">
+                                Sélectionnez le problème
+                            </option>
+
+                        </select>
+
+                        <small
+                            id="typeDescription"
+                            class="help"
+                        >
+                            Choisissez d'abord le problème rencontré.
+                        </small>
+
+                    </div>
+
+
+                    <!-- QUARTIER -->
+
+                    <div class="form-group">
+
+                        <label for="idQuartier">
+
+                            Quartier
+
+                            <span>*</span>
+
+                        </label>
+
+                        <select
+                            id="idQuartier"
+                            name="id_quartier"
+                            required
+                        >
+
+                            <option value="">
+                                Chargement des quartiers...
+                            </option>
+
+                        </select>
+
+                        <small class="help">
+                            Où se situe le problème ?
+                        </small>
+
+                    </div>
+
+
+                    <!-- DEPUIS QUAND -->
+
+                    <div class="form-group">
+
+                        <label for="depuisQuand">
+
+                            Depuis quand ?
+
+                            <span>*</span>
+
+                        </label>
+
+                        <select
+                            id="depuisQuand"
+                            name="depuis_quand"
+                            required
+                        >
+
+                            <option value="">
+                                Sélectionnez
+                            </option>
+
+                            <option value="Moins d'une heure">
+                                Moins d'une heure
+                            </option>
+
+                            <option value="Quelques heures">
+                                Quelques heures
+                            </option>
+
+                            <option value="Depuis aujourd'hui">
+                                Depuis aujourd'hui
+                            </option>
+
+                            <option value="Depuis hier">
+                                Depuis hier
+                            </option>
+
+                            <option value="Depuis plusieurs jours">
+                                Depuis plusieurs jours
+                            </option>
+
+                            <option value="Depuis plusieurs semaines">
+                                Depuis plusieurs semaines
+                            </option>
+
+                            <option value="Je ne sais pas">
+                                Je ne sais pas
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- TITRE -->
+
+                    <div class="form-group full">
+
+                        <label for="titre">
+
+                            Titre du signalement
+
+                            <span>*</span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="titre"
+                            name="titre"
+                            maxlength="150"
+                            placeholder="Ex : Coupure d'eau à 67 Ha"
+                            required
+                        >
+
+                        <div class="counter">
+                            <span id="titreCounter">0</span>
+                            / 150
+                        </div>
+
+                    </div>
+
+
+                    <!-- DESCRIPTION -->
+
+                    <div class="form-group full">
+
+                        <label for="description">
+
+                            Description
+
+                            <span>*</span>
+
+                        </label>
+
+                        <textarea
+                            id="description"
+                            name="description"
+                            rows="6"
+                            maxlength="1000"
+                            placeholder="Décrivez précisément le problème : lieu, situation, détails utiles..."
+                            required
+                        ></textarea>
+
+                        <div class="counter">
+                            <span id="descriptionCounter">0</span>
+                            / 1000
+                        </div>
+
+                    </div>
+
+
+                    <!-- PHOTO -->
+
+                    <div class="form-group full">
+
+                        <label for="photo">
+
+                            Photo
+
+                            <em>
+                                facultatif
+                            </em>
+
+                        </label>
+
+                        <div class="photo-box">
+
+                            <input
+                                type="file"
+                                id="photo"
+                                name="photo"
+                                accept="image/jpeg,image/png,image/webp"
+                            >
+
+                            <div class="photo-content">
+
+                                <div class="photo-icon">
+                                    📷
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Ajouter une photo
+                                    </strong>
+
+                                    <small>
+                                        JPG, PNG ou WEBP — 5 Mo maximum
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            id="photoPreview"
+                            class="photo-preview hidden"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MESSAGE -->
+
+                <div
+                    id="formMessage"
+                    class="form-message hidden"
+                ></div>
+
+
+                <!-- ACTIONS -->
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        id="cancelBtn"
+                        class="btn-cancel"
+                    >
+                        Annuler
+                    </button>
+
+                    <button
+                        type="submit"
+                        id="submitBtn"
+                        class="btn-submit"
+                    >
+
+                        <span
+                            id="btnText"
+                        >
+                            Envoyer le signalement
+                        </span>
+
+                        <span
+                            id="btnLoader"
+                            class="hidden"
+                        >
+                            Envoi en cours...
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- ==================================================
+             SUCCÈS
+        =================================================== -->
+
+        <section
+            id="successSection"
+            class="success-card hidden"
+        >
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <span class="success-badge">
+                Signalement enregistré
+            </span>
+
+            <h2>
+                Merci pour votre signalement !
+            </h2>
+
+            <p>
+                Votre signalement a bien été enregistré
+                et sera traité par les services concernés.
+            </p>
+
+            <div class="success-actions">
+
+                <button
+                    type="button"
+                    id="newSignalementBtn"
+                    class="btn-submit"
+                >
+                    + Nouveau signalement
+                </button>
+
+                <a
+                    href="/dashboard"
+                    class="btn-cancel"
+                >
+                    Retour au tableau de bord
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="/js/signalement.js"></script>
+
+</body>
+
+</html>

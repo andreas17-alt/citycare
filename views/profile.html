@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Mon profil | CityCare</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/profile.css"
+    >
+
+</head>
+
+<body>
+
+<!-- ======================================================
+     APPLICATION
+====================================================== -->
+
+<div class="app">
+
+    <!-- ==================================================
+         SIDEBAR
+    =================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-top">
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <div class="logo-mark">
+                    C
+                </div>
+
+                <div class="logo-text">
+
+                    <strong>CityCare</strong>
+
+                    <span>Ville connectée</span>
+
+                </div>
+
+            </div>
+
+            <!-- UTILISATEUR -->
+
+            <div class="sidebar-user">
+
+                <div
+                    class="sidebar-avatar"
+                    id="sidebarAvatar"
+                >
+                    U
+                </div>
+
+                <div class="sidebar-user-info">
+
+                    <strong id="sidebarName">
+                        Chargement...
+                    </strong>
+
+                    <span>
+                        Citoyen
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- NAVIGATION -->
+
+            <nav class="navigation">
+
+                <p class="navigation-title">
+                    MENU PRINCIPAL
+                </p>
+
+                <a
+                    href="/dashboard"
+                    class="nav-link"
+                >
+
+                    <span class="nav-icon">⌂</span>
+
+                    <span>Tableau de bord</span>
+
+                </a>
+
+                <a
+                    href="/signalement"
+                    class="nav-link"
+                >
+
+                    <span class="nav-icon">⚑</span>
+
+                    <span>Signalements</span>
+
+                </a>
+
+                <a
+                    href="/rendezvous"
+                    class="nav-link"
+                >
+
+                    <span class="nav-icon">▣</span>
+
+                    <span>Rendez-vous</span>
+
+                </a>
+
+                <a
+                    href="/transport"
+                    class="nav-link"
+                >
+
+                    <span class="nav-icon">▰</span>
+
+                    <span>Transport</span>
+
+                </a>
+
+                <p class="navigation-title second-title">
+                    MON ESPACE
+                </p>
+
+                <a
+                    href="/profile"
+                    class="nav-link active"
+                >
+
+                    <span class="nav-icon">●</span>
+
+                    <span>Mon profil</span>
+
+                </a>
+
+            </nav>
+
+        </div>
+
+        <!-- DÉCONNEXION -->
+
+        <div class="sidebar-bottom">
+
+            <a
+                href="/logout"
+                class="logout-link"
+                id="btnDeconnexion"
+            >
+
+                <span class="nav-icon">↪</span>
+
+                <span>Déconnexion</span>
+
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ==================================================
+         CONTENU PRINCIPAL
+    =================================================== -->
+
+    <main class="main">
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    type="button"
+                    class="mobile-menu"
+                    id="mobileMenu"
+                >
+                    ☰
+                </button>
+
+                <div>
+
+                    <span class="breadcrumb">
+                        Mon espace
+                    </span>
+
+                    <h1>
+                        Mon profil
+                    </h1>
+
+                </div>
+
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="online-status">
+
+                    <span class="status-dot"></span>
+
+                    Compte actif
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ==================================================
+             CONTENU
+        =================================================== -->
+
+        <div class="content">
+
+            <!-- INTRODUCTION -->
+
+            <section class="page-intro">
+
+                <div>
+
+                    <span class="page-kicker">
+                        ESPACE CITOYEN
+                    </span>
+
+                    <h2>
+                        Gérez votre profil
+                    </h2>
+
+                    <p>
+                        Consultez et mettez à jour vos informations
+                        personnelles et les paramètres de votre compte.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 CARTE IDENTITÉ
+            =================================================== -->
+
+            <section class="profile-hero">
+
+                <div class="profile-hero-left">
+
+                    <div
+                        class="big-avatar"
+                        id="initialesUtilisateur"
+                    >
+                        U
+                    </div>
+
+                    <div class="profile-identity">
+
+                        <div class="identity-name-row">
+
+                            <h2 id="nomComplet">
+                                Chargement...
+                            </h2>
+
+                            <span
+                                class="role-badge"
+                                id="roleProfil"
+                            >
+                                Citoyen
+                            </span>
+
+                        </div>
+
+                        <p
+                            class="username"
+                            id="usernameProfil"
+                        >
+                            @username
+                        </p>
+
+                        <p
+                            class="email-hero"
+                            id="emailProfilHero"
+                        >
+                            email@example.com
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-hero-right">
+
+                    <div class="member-info">
+
+                        <span>
+                            Membre depuis
+                        </span>
+
+                        <strong id="dateCreationHero">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 STATISTIQUES
+            =================================================== -->
+
+            <section class="mini-stats">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        ⚑
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Signalements
+                        </span>
+
+                        <strong id="statSignalements">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        ▣
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Rendez-vous
+                        </span>
+
+                        <strong id="statRendezvous">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        ●
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Compte
+                        </span>
+
+                        <strong>
+                            Actif
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 GRILLE PRINCIPALE
+            =================================================== -->
+
+            <div class="profile-grid">
+
+
+                <!-- ==============================================
+                     INFORMATIONS PERSONNELLES
+                =============================================== -->
+
+                <section class="card personal-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span class="card-kicker">
+                                PROFIL
+                            </span>
+
+                            <h3>
+                                Informations personnelles
+                            </h3>
+
+                            <p>
+                                Vos informations utilisées par CityCare.
+                            </p>
+
+                        </div>
+
+                        <div class="card-header-icon">
+                            ●
+                        </div>
+
+                    </div>
+
+
+                    <!-- MESSAGE -->
+
+                    <div
+                        id="messageProfile"
+                        class="message"
+                        hidden
+                    ></div>
+
+
+                    <!-- FORMULAIRE -->
+
+                    <form id="formProfile">
+
+                        <div class="form-grid">
+
+                            <!-- NOM -->
+
+                            <div class="form-group">
+
+                                <label for="nom">
+                                    Nom
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="nom"
+                                    name="nom"
+                                    placeholder="Votre nom"
+                                    autocomplete="family-name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- PRÉNOM -->
+
+                            <div class="form-group">
+
+                                <label for="prenom">
+                                    Prénom
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="prenom"
+                                    name="prenom"
+                                    placeholder="Votre prénom"
+                                    autocomplete="given-name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- USERNAME -->
+
+                            <div class="form-group">
+
+                                <label for="username">
+                                    Nom d'utilisateur
+                                </label>
+
+                                <div class="input-prefix">
+
+                                    <span>@</span>
+
+                                    <input
+                                        type="text"
+                                        id="username"
+                                        name="username"
+                                        placeholder="username"
+                                        autocomplete="username"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- EMAIL -->
+
+                            <div class="form-group">
+
+                                <label for="email">
+                                    Adresse e-mail
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="exemple@email.com"
+                                    autocomplete="email"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- QUARTIER -->
+
+                            <div class="form-group">
+
+                                <label for="quartier">
+                                    Quartier
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="quartier"
+                                    name="quartier"
+                                    placeholder="Non renseigné"
+                                    readonly
+                                >
+
+                                <small>
+                                    Cette information ne peut pas être
+                                    modifiée ici.
+                                </small>
+
+                            </div>
+
+
+                            <!-- RÔLE -->
+
+                            <div class="form-group">
+
+                                <label for="role">
+                                    Type de compte
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="role"
+                                    name="role"
+                                    readonly
+                                >
+
+                            </div>
+
+
+                            <!-- DATE -->
+
+                            <div class="form-group full">
+
+                                <label for="date_creation">
+                                    Date de création
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="date_creation"
+                                    name="date_creation"
+                                    readonly
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- BOUTONS -->
+
+                        <div class="form-actions">
+
+                            <button
+                                type="button"
+                                id="btnAnnuler"
+                                class="btn btn-light"
+                            >
+                                Annuler
+                            </button>
+
+                            <button
+                                type="submit"
+                                id="btnEnregistrer"
+                                class="btn btn-primary"
+                            >
+                                <span>✓</span>
+                                Enregistrer
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </section>
+
+
+                <!-- ==============================================
+                     SÉCURITÉ
+                =============================================== -->
+
+                <aside class="security-column">
+
+
+                    <!-- CARTE SÉCURITÉ -->
+
+                    <section class="card security-card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <span class="card-kicker">
+                                    SÉCURITÉ
+                                </span>
+
+                                <h3>
+                                    Votre compte
+                                </h3>
+
+                            </div>
+
+                            <div class="security-icon">
+                                🔒
+                            </div>
+
+                        </div>
+
+
+                        <div class="security-status">
+
+                            <span class="security-check">
+                                ✓
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Compte sécurisé
+                                </strong>
+
+                                <p>
+                                    Vos informations sont protégées.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="security-button"
+                            id="btnModifierMotDePasse"
+                        >
+
+                            🔑
+
+                            <span>
+                                Modifier le mot de passe
+                            </span>
+
+                            <strong>
+                                →
+                            </strong>
+
+                        </button>
+
+                    </section>
+
+
+                    <!-- CONSEILS -->
+
+                    <section class="card tips-card">
+
+                        <span class="card-kicker">
+                            CONSEIL
+                        </span>
+
+                        <h3>
+                            Gardez vos informations à jour
+                        </h3>
+
+                        <p>
+                            Des informations correctes permettent à
+                            CityCare de mieux vous accompagner.
+                        </p>
+
+                        <div class="tip-line">
+                            <span>✓</span>
+                            Nom et prénom corrects
+                        </div>
+
+                        <div class="tip-line">
+                            <span>✓</span>
+                            Adresse e-mail valide
+                        </div>
+
+                        <div class="tip-line">
+                            <span>✓</span>
+                            Mot de passe sécurisé
+                        </div>
+
+                    </section>
+
+                </aside>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- ======================================================
+     MODALE MOT DE PASSE
+====================================================== -->
+
+<div
+    class="modal-overlay"
+    id="passwordModal"
+    hidden
+>
+
+    <div class="password-modal">
+
+        <button
+            type="button"
+            class="modal-close"
+            id="btnFermerModal"
+        >
+            ×
+        </button>
+
+        <div class="modal-icon">
+            🔐
+        </div>
+
+        <h2>
+            Modifier le mot de passe
+        </h2>
+
+        <p>
+            Choisissez un nouveau mot de passe sécurisé.
+        </p>
+
+
+        <div
+            id="passwordMessage"
+            class="message"
+            hidden
+        ></div>
+
+
+        <form id="formPassword">
+
+            <div class="form-group">
+
+                <label for="ancienMotDePasse">
+                    Ancien mot de passe
+                </label>
+
+                <input
+                    type="password"
+                    id="ancienMotDePasse"
+                    autocomplete="current-password"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="nouveauMotDePasse">
+                    Nouveau mot de passe
+                </label>
+
+                <input
+                    type="password"
+                    id="nouveauMotDePasse"
+                    autocomplete="new-password"
+                    minlength="6"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="confirmation">
+                    Confirmer le nouveau mot de passe
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmation"
+                    autocomplete="new-password"
+                    minlength="6"
+                    required
+                >
+
+            </div>
+
+
+            <div class="password-actions">
+
+                <button
+                    type="button"
+                    class="btn btn-light"
+                    id="btnAnnulerPassword"
+                >
+                    Annuler
+                </button>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                    id="btnPassword"
+                >
+                    Modifier le mot de passe
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="/js/profile.js"></script>
+
+</body>
+
+</html>
