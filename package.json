@@ -1,14 +1,14 @@
 {
   "name": "citycare",
   "version": "1.0.0",
-  "description": "",
-  "main": "db.js",
+  "description": "Application de gestion des problèmes urbains",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Andréas",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
@@ -20,5 +20,8 @@
     "express-session": "^1.19.0",
     "multer": "^2.2.0",
     "mysql2": "^3.23.3"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
